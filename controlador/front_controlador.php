@@ -17,12 +17,10 @@ if (!empty($_GET['action'])) $action = $_GET['action'];
 $controller = CONTROLLERS_FOLDER . $controller . '_controlador.php';
 
 try {
-    if (is_file($controller))
-        require_once ($controller);
+    if (is_file($controller)) require_once ($controller);
     else
         throw new Exception('El controlador no existe - 404 not found');
-    if (is_callable($action))
-        $action();
+    if (is_callable($action)) $action();
     else
         throw new Exception('La accion no existe - 404 not found');
 } catch (Exception $e) {
