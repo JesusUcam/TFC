@@ -8,7 +8,6 @@
 body{
     height: 100vh;
     background-color: #000;
-    background-image: url(media/background2jpg.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -30,6 +29,7 @@ a:hover{
 header{
     position: relative;
     padding: 0 2rem;
+    z-index: 1000;
 }
 
 .navbar{
