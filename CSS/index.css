@@ -35,11 +35,9 @@ header{
 main{
 
     height: 100vh;
+    background-image: url(../media/background2jpg.jpg);
     background-size: cover;
     background-position: center;
-    display: flex;
-    align-items: center;
-    background-image: url(media/background2jpg.jpg);
 }
 
 
@@ -91,7 +89,7 @@ main{
     scale: 0.95;
 }
 /* MAIN */
-.main{
+.banner{
     height: calc(100vh - 60px);
     display: flex;
     flex-direction: column;
@@ -101,7 +99,7 @@ main{
     color: #fff;
 }
 
-.main h1 {
+.banner h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
 }
