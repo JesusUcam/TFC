@@ -1,6 +1,6 @@
 <header>
     <div class="navbar">
-        <div class="logo"><a href="index.html">J.A Barber Shop</a></div>
+        <div class="logo"><a href="index.php">J.A Barber Shop</a></div>
         <ul class="links">
             <li><a href="tienda.html">Tienda</a></li>
             <li><a href="nosostros.html">Sobre nosotros</a></li>
@@ -22,3 +22,5 @@
     </div>
 
 </header>
+
+<script src="JS/iniciar_sesion.js" defer></script>
