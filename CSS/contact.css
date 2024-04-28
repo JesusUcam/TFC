@@ -19,8 +19,8 @@
     color: #C0C0C0;
     font-family: Arial, san-serif;
     background: linear-gradient(to top right, #222222 20%, #adadad 80%);
-    background-image: url(media/BackGround3.jpg);
-    background-size: cover; 
+    background-image: url(../media/Background3.jpg);
+    background-size: cover;   
 }
  
 
