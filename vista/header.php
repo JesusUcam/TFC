@@ -10,6 +10,7 @@
         <a href="#" class="action_btn">Iniciar Sesión</a>
         <div class="toggle_btn">
             <i class="fa-solid fa-bars"></i>
+            <!--<button id="btn_iniciar_sesion" class="action_btn">Iniciar Sesión</button>-->
         </div>
     </div>
 
@@ -18,7 +19,8 @@
         <li><a href="nosostros.html">Sobre nosotros</a></li>
         <li><a href="servicios.html">Servicios</a></li>
         <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="#" class="action_btn">Iniciar Sesión</a></li>
+        <!-- <li><a href="#" class="action_btn">Iniciar Sesión</a></li> -->
+        <button class="action_btn">Iniciar Sesión</button>
     </div>
 
 </header>
