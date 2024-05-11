@@ -17,6 +17,7 @@
 
  body {
     color: #C0C0C0;
+    height: 100vh;
     font-family: Arial, san-serif;
     background: linear-gradient(to top right, #222222 20%, #adadad 80%);
     background-image: url(../media/Background3.jpg);
