@@ -22,7 +22,7 @@
     ?>
 
 <footer>
-    <?php include 'footer.php';?>
+    <?php include 'vista/footer.php';?>
 </footer>
 
 

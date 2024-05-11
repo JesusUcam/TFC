@@ -9,7 +9,15 @@
     </div>
     <div class="column">
         <h2>Site map</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel eros nec sapien finibus suscipit.</p>
+        <a href="index.php">Inicio</a>
+        <br>
+        <a href="tienda.html">Tienda</a>
+        <br>
+        <a href="nosotros.html">Sobre nosotros</a>
+        <br>
+        <a href="servicios.html">Servicios</a>
+        <br>
+        <a href="contacto.html">Contacto</a>
     </div>
     <div class="column">
         <h2>Legal</h2>
