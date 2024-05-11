@@ -18,7 +18,7 @@
 <body>
     <?php
 
-      
+        require_once("vista/header.php");
         require_once("controlador/front_controlador.php");
 
     ?>
