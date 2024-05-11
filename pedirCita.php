@@ -44,8 +44,8 @@
         
         <h3>Fecha de tu cita</h3>
         <input type="date" name="fecha" id="fecha">
-        
 
+        <button>Pedir cita</button>
     </main>
 
     <footer>

@@ -19,12 +19,12 @@ footer{
 
 }
 
-.container {
+footer .container {
     display: flex;
     justify-content: space-between;
 }
 
-.column {
+footer .column {
     width: 30%; /* Ancho de cada columna */
     padding: 20px;
     margin: 10px;

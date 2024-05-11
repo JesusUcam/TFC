@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="CSS/header.css">
 <header>
     <div class="navbar">
         <div class="logo"><a href="index.php">J.A Barber Shop</a></div>

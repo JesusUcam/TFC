@@ -1,6 +1,28 @@
-h1{
 
+body {
+    background-image: url(../media/Background4.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+
+main{
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 5vh;
+
+}
+
+h1{
+    text-align: center;
+    font-size: 4rem; 
     color:white;
+    text-decoration: underline;
 }
 h2 {
     color: white;
