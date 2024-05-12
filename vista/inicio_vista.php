@@ -1,5 +1,3 @@
-
-    
 <main>
     <div class="banner">
         <h1>BIENVENIDO</h1>

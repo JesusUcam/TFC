@@ -11,6 +11,7 @@
         <a href="#" class="action_btn">Iniciar Sesión</a>
         <div class="toggle_btn">
             <i class="fa-solid fa-bars"></i>
+            <!--<button id="btn_iniciar_sesion" class="action_btn">Iniciar Sesión</button>-->
         </div>
     </div>
 
@@ -23,3 +24,5 @@
     </div>
 
 </header>
+
+<script src="JS/iniciar_sesion.js" defer></script>
