@@ -13,7 +13,8 @@
     <script src="JS/dropdown_menu.js" defer></script>
 </head>
 <body>
-       <?php include_once("vista/header.php");  ?>
+       <?php
+       include_once("vista/header.php");  ?>
 
     <main>
         <div id="contact-form">

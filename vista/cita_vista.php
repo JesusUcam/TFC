@@ -17,7 +17,7 @@
 
 <body>
     <?php
-    require_once ("vista/header.php");
+    require_once ("header.php");
     ?>
     <main>
         <h1>Pide cita online</h1>
@@ -57,5 +57,5 @@
     </main>
 
     <footer>
-        <?php include 'vista/footer.php'; ?>
+        <?php include 'footer.php'; ?>
     </footer>
