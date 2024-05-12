@@ -22,7 +22,7 @@
     <div id="myModal" class="modal" style="display: none;">
         <div id="contact-form" class="modal-content">
             <span class="close"><i class="fa-solid fa-x"></i></span>
-            <form method="post" action="/">
+            <form action="index.php" method="post">
                 <div>
                     <label for="email">
                         <span class="required">Email: </span>
@@ -31,7 +31,7 @@
                 </div>
                 <div>
                     <label for="password">
-                        <span class="required">Email: *</span>
+                        <span class="required">Email: </span>
                         <input type="password" id="password" name="password" value="" placeholder="Su contraseña" tabindex="2" required="required">
                     </label>
                 </div>
