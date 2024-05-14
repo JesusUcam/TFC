@@ -19,29 +19,6 @@
 
 <body>
 
-    <div id="myModal" class="modal" style="display: none;">
-        <div id="contact-form" class="modal-content">
-            <span class="close"><i class="fa-solid fa-x"></i></span>
-            <form action="index.php" method="post">
-                <div>
-                    <label for="email">
-                        <span class="required">Email: </span>
-                        <input type="text" id="email" name="email" value="" placeholder="Su email" required="required" tabindex="1" autofocus="autofocus">
-                    </label>
-                </div>
-                <div>
-                    <label for="password">
-                        <span class="required">Email: </span>
-                        <input type="password" id="password" name="password" value="" placeholder="Su contraseña" tabindex="2" required="required">
-                    </label>
-                </div>
-                <div>
-                    <button type="submit" id="btn-enviar" name="submit">Enviar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
     <?php
 
         require_once("vista/header.php");
@@ -51,5 +28,4 @@
     ?>
 
 </body>
-
 </html>

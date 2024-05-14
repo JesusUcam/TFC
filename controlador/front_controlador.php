@@ -5,8 +5,6 @@ function console_log($data) {
     echo '</script>';
 }
 
-console_log("hola mundo");
-
 define('CONTROLLERS_FOLDER', "controlador/");
 define('DEFAULT_CONTROLLER', "usuarios");
 define('DEFAULT_ACTION', "home");
@@ -17,9 +15,6 @@ if (!empty($_GET['controlador'])) $controller = $_GET['controlador'];
 $action = DEFAULT_ACTION;
 if (!empty($_GET['action'])) $action = $_GET['action'];
 $controller = CONTROLLERS_FOLDER . $controller . '_controlador.php';
-
-console_log($controller);
-console_log($action);
 
 try {
     if (is_file($controller)) require_once ($controller);
