@@ -13,7 +13,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/modal.css">
-    <link rel="stylesheet" href="CSS/contact.css">
+    <!-- <link rel="stylesheet" href="CSS/contact.css"> -->
     <script src="JS/dropdown_menu.js" defer></script>
 </head>
 
@@ -46,14 +46,9 @@
 
         require_once("vista/header.php");
         require_once("controlador/front_controlador.php");
+        include ('vista/footer.php');
 
     ?>
-
-
-    <?php include ('vista/footer.php');?>
-
-
-
 
 </body>
 

@@ -8,7 +8,7 @@ function console_log($data) {
 console_log("hola mundo");
 
 define('CONTROLLERS_FOLDER', "controlador/");
-define('DEFAULT_CONTROLLER', "clientes"); //El controlador por defecto será la página de inicio
+define('DEFAULT_CONTROLLER', "usuarios");
 define('DEFAULT_ACTION', "home");
 
 $controller = DEFAULT_CONTROLLER;
