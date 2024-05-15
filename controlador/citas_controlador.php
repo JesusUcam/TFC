@@ -24,10 +24,5 @@ function home()
 
     require_once("pedirCita.php");
 }
-/*function desconectar()
-{
-    session_destroy();
-    header("Location: index.php");
-}
-*/
+
 ?>

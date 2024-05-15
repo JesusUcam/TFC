@@ -15,8 +15,6 @@ function home(){
         if ($datos->login($email, $clave)) {
             console_log("email encontrado!!!");
             $_SESSION['email'] = $email;
-            // PREGUNTAR A PELIGROS SI LE VALE ESTE HEADER LOCATION
-            header("Location: index.php");
         } else {
             console_log("email no encontrado");
             if ($email != '') {
@@ -30,15 +28,4 @@ function home(){
 
 }
 
-function editar_perfil() {
-    require_once("modelo/usuarios_modelo.php");
-
-    $_SESSION['email'] = $email;
-    
-}
-
-function desconectar(){
-    session_destroy();
-    header("Location: index.php");
-}
 ?>

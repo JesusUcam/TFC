@@ -1,7 +1,10 @@
 <link rel="stylesheet" href="CSS/header.css">
-
+<script>
+    console.log("---HEADER---");
+</script>
 <?php
     session_start();
+    console_log($_SESSION['email']);
     if (isset($_SESSION['email'])) {
 ?>
 
@@ -31,6 +34,7 @@
         </div>
     </div>
 
+    <!-- Desplegables -->
     <div class="dropdown_menu">
         <li><a href="tienda.php">Tienda</a></li>
         <li><a href="nosostros.php">Sobre nosotros</a></li>
@@ -42,13 +46,17 @@
             </div>
         </li>
     </div>
+    <div class="user_config">
+        <li><a href="#">Mis Citas</a></li>
+        <li><a href="index.php?controlador=usuarios&action=editar_perfil">Editar perfil</a></li>
+        <li><a href="index.php?controlador=usuarios&action=desconectar" class="cs_btn">Cerrar sesion</a></li>
+    </div>
     
 </header>
 
 <?php
     } else {
 ?>
-        
 
 <script>
     console.log("NO HAY SESION INICIADA");
@@ -71,6 +79,7 @@
         </div>
     </div>
 
+    <!-- Desplegables -->
     <div class="dropdown_menu">
         <li><a href="tienda.php">Tienda</a></li>
         <li><a href="nosostros.php">Sobre nosotros</a></li>

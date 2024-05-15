@@ -66,7 +66,7 @@ main{
     cursor: pointer;
     display: none;
 }
-
+/* ACTION BTN*/
 .action_btn {
     background-color: orange;
     color: #fff;
@@ -88,6 +88,28 @@ main{
 .action_btn:active{
     scale: 0.95;
 }
+/* CS BTN */
+.cs_btn {
+    background-color: rgb(255, 30, 0);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+}
+
+.cs_btn:hover {
+    scale: 1.05;
+    color: #fff;
+}
+
+.cs_btn:active{
+    scale: 0.95;
+}
 /* MAIN */
 .banner{
     height: calc(100vh - 60px);
@@ -106,6 +128,7 @@ main{
 
 /* DROPDOWN MENU */
 .dropdown_menu{
+    z-index: 100;
     position: absolute;
     right: 2rem;
     top: 60px;
@@ -130,6 +153,37 @@ main{
 }
 
 .dropdown_menu .action_btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+/* USER CONFIG */
+.user_config{
+    z-index: 100;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgb(202, 202, 202);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.user_config.open{
+    height: 150px;
+}
+
+.user_config li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user_config .action_btn {
     width: 100%;
     display: flex;
     justify-content: center;
