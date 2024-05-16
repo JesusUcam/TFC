@@ -20,11 +20,11 @@ class Usuarios_modelo{
         return $this->datos;
     }
 
-    public function login($user, $password){
+    public function login($usuario, $clave){
         $login = false;
         $sql = "SELECT * FROM peluqueros p, clientes c
-                WHERE (p.email = '$user' AND p.clave = '$password')
-                OR (c.email = '$user' AND c.clave = '$password')";
+                WHERE (p.email = '$usuario' AND p.clave = '$clave')
+                OR (c.email = '$usuario' AND c.clave = '$clave')";
         if ($consulta = $this->db->query($sql)) {
             if ($consulta->num_rows > 0) {
                 $login = true;
@@ -32,4 +32,15 @@ class Usuarios_modelo{
         }
         return $login;
     }
+
+    public function get_cliente($usuario) { 
+        console_log($usuario);
+        $sql = "SELECT * FROM clientes WHERE email = '$usuario'";
+        $consulta = $this->db->query($sql);
+        $this->datos[] = $registro;
+            
+        return $this->datos;
+
+    }
+
 }

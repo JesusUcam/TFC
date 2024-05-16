@@ -4,7 +4,6 @@
 </script>
 <?php
     session_start();
-    console_log($_SESSION['email']);
     if (isset($_SESSION['email'])) {
 ?>
 

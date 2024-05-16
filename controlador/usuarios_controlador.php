@@ -33,7 +33,12 @@ function home(){
 function editar_perfil() {
     require_once("modelo/usuarios_modelo.php");
 
-    $_SESSION['email'] = $email;
+    $email = $_SESSION['email'];
+    $datos = new Usuarios_modelo();
+
+    $cliente_datos = $datos->get_cliente($email);
+    console_log($cliente_datos);
+    require_once("vista/perfil_vista.php");
     
 }
 
