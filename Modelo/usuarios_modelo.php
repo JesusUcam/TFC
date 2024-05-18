@@ -34,13 +34,12 @@ class Usuarios_modelo{
     }
 
     public function get_cliente($usuario) { 
-        console_log($usuario);
         $sql = "SELECT * FROM clientes WHERE email = '$usuario'";
         $consulta = $this->db->query($sql);
-        $this->datos[] = $registro;
-            
-        return $this->datos;
-
+        if ($registro = $consulta->fetch_assoc()) {
+            return $registro;
+        }
+        return null; // Devuelve null si no se encuentra el cliente
     }
 
 }

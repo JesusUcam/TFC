@@ -37,7 +37,6 @@ function editar_perfil() {
     $datos = new Usuarios_modelo();
 
     $cliente_datos = $datos->get_cliente($email);
-    console_log($cliente_datos);
     require_once("vista/perfil_vista.php");
     
 }
