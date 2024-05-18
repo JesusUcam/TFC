@@ -1,12 +1,12 @@
 <link rel="stylesheet" href="CSS/header.css">
 
 <?php
-    session_start();
-    if (isset($_SESSION['email'])) {
-?>
+session_start();
+if (isset($_SESSION['email'])) {
+    ?>
 
 <script>
-    console.log("SESION INICIADA");
+console.log("SESION INICIADA");
 </script>
 
 <header>
@@ -23,7 +23,7 @@
                 </div>
             </li>
         </ul>
-        <a href="#" class="action_btn">Pedir Cita</a>
+        <a href="index.php?controlador=citas&action=home" class="action_btn">Pedir Cita</a>
 
         <div class="toggle_btn">
             <i class="fa-solid fa-bars"></i>
@@ -42,16 +42,16 @@
             </div>
         </li>
     </div>
-    
+
 </header>
 
 <?php
-    } else {
-?>
-        
+} else {
+    ?>
+
 
 <script>
-    console.log("NO HAY SESION INICIADA");
+console.log("NO HAY SESION INICIADA");
 </script>
 
 
@@ -78,34 +78,36 @@
         <li><a href="contacto.php">Contacto</a></li>
         <li><a href="#" class="action_btn">Iniciar Sesión</a></li>
     </div>
-    
+
 </header>
 
 <div id="myModal" class="modal" style="display: none;">
     <div id="contact-form" class="modal-content">
         <span class="close"><i class="fa-solid fa-x"></i></span>
-        
+
         <form action="index.php" method="post">
             <div>
                 <label for="email">
                     <span class="required">Email: </span>
-                    <input type="text" id="email" name="email" value="" placeholder="Su email" required="required" tabindex="1" autofocus="autofocus">
+                    <input type="text" id="email" name="email" value="" placeholder="Su email" required="required"
+                        tabindex="1" autofocus="autofocus">
                 </label>
             </div>
             <div>
                 <label for="clave">
                     <span class="required">Email: </span>
-                    <input type="password" id="clave" name="clave" value="" placeholder="Su contraseña" tabindex="2" required="required">
+                    <input type="password" id="clave" name="clave" value="" placeholder="Su contraseña" tabindex="2"
+                        required="required">
                 </label>
             </div>
             <div>
                 <button type="submit" id="btn-enviar" name="submit">Enviar</button>
             </div>
         </form>
-        
+
     </div>
 </div>
 <script src="JS/iniciar_sesion.js" defer></script>
 <?php
-    }
+}
 ?>
