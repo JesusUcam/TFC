@@ -7,8 +7,8 @@ class Citas_modelo{
 
     public function __construct()  
     {
-        require_once ("modelo/conect.php");
-        $this->db = Conect::conexion();
+        require_once ("modelo/conectar.php");
+        $this->db = Conectar::conexion();
         $this->datos = array();
     }
 
@@ -39,6 +39,19 @@ class Citas_modelo{
             $this->datos[] = $registro;
         }
         return $this->datos;
+    }
+
+    public function get_citasCliente($usuario){
+        
+        console_log($consulta);
+        $sql = "SELECT * FROM citas WHERE cliente = $usuario";
+        $consulta = $this->db->query($sql);
+        console_log($sql);
+        console_log($consulta);
+        if ($registro = $consulta->fetch_assoc()) {
+            return $registro;
+        }
+        return null;
     }
 
     public function borrar_citas($id){

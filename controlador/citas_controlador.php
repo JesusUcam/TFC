@@ -1,8 +1,7 @@
 <?php
 //session_start();
 
-function home()
-{
+function home(){
     require_once ("modelo/citas_modelo.php");
 
     $error = '';
@@ -20,6 +19,18 @@ function home()
             console_log('Cita guardada correctamente');
         }
 
+    }
+
+    //Creo q es mejor poner esto aqui pero de momento está en usuarios.
+    function clienteCitas() {
+        require_once("modelo/usuarios_modelo.php");
+    
+        $email = $_SESSION['email'];
+        $datos = new Usuarios_modelo();
+    
+        $cliente_datos = $datos->get_cliente($email);
+        require_once("vista/perfil_vista.php");
+        
     }
 
     require_once("pedirCita.php");

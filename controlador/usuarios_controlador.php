@@ -1,4 +1,27 @@
 <?php
+
+console_log("Probando cosas");
+// console_log($_POST["accion"]);
+if(isset($_POST["accion"])){
+
+    //estamos ante una llamada a ajax
+echo '  <form action="" method="post">
+<label for="fname">Nombre:</label>
+<input type="text" id="fname" name="nombre" value="'.$_POST['nombre'].'" readonly>
+
+<label for="fedad">Edad:</label>
+<input type="text" id="ledad" name="edad" value="'.$_POST['edad'].'">
+
+<label for="fcorreo">Correo:</label>
+<input type="text" id="fcorreo" name="correo" value="'.$_POST['correo'].'">
+
+<input type="submit" name="modificar" value="Modificar">
+</form>
+<input type="submit" id="cancelar" name="cancelar" value="Cancelar" onclick=cancelar()>
+';
+}
+
+
 function home(){
 
     require_once("modelo/usuarios_modelo.php");
@@ -39,6 +62,21 @@ function editar_perfil() {
     $cliente_datos = $datos->get_cliente($email);
     require_once("vista/perfil_vista.php");
     
+}
+
+function clienteCitas() {
+
+    require_once("modelo/usuarios_modelo.php");
+    require_once("modelo/citas_modelo.php");
+
+    $email = $_SESSION['email'];
+    $datosCli = new Usuarios_modelo();
+    $datosCit = new Citas_modelo();
+
+    $cliente_datos = $datosCli->get_cliente($email);
+    $cita_datos = $datosCit->get_citasCliente($email);
+
+    require_once("vista/citasCliente_vista.php");
 }
 
 function desconectar(){

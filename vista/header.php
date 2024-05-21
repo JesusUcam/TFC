@@ -46,7 +46,7 @@
         </li>
     </div>
     <div class="user_config">
-        <li><a href="#">Mis Citas</a></li>
+        <li><a href="index.php?controlador=usuarios&action=clienteCitas">Mis Citas</a></li>
         <li><a href="index.php?controlador=usuarios&action=editar_perfil">Editar perfil</a></li>
         <li><a href="index.php?controlador=usuarios&action=desconectar" class="cs_btn">Cerrar sesion</a></li>
     </div>
