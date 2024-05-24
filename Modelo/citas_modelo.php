@@ -1,30 +1,65 @@
-<?php 
+<?php
 
-class Citas_modelo{
+class Citas_modelo
+{
 
     private $db;
     private $datos;
 
-    public function __construct()  
+    public function __construct()
     {
         require_once ("modelo/conectar.php");
         $this->db = Conectar::conexion();
         $this->datos = array();
     }
 
-    public function get_centros(){
-        $sql = "SELECT * FROM centros";
+    public function get_servicios()
+    {
+        $sql = "SELECT Nombre FROM servicios";
         $resultado = $this->db->query($sql);
+        $servicios = array();
         while ($registro = $resultado->fetch_assoc()) {
-            $this->datos[] = $registro;
+            $servicios[] = $registro['Nombre'];
         }
-        return $this->datos;
+        return $servicios;
     }
 
-    public function get_barbers()
+    public function get_peluqueros()
+    {
+        $sql = "SELECT Nombre FROM peluqueros";
+        $resultado = $this->db->query($sql);
+        $peluqueros = array();
+        while ($registro = $resultado->fetch_assoc()) {
+            $peluqueros[] = $registro['Nombre'];
+        }
+        return $peluqueros;
+    }
+
+    public function get_centros()
+    {
+        $sql = "SELECT nombre FROM centros";
+        $resultado = $this->db->query($sql);
+        $centros = array();
+        while ($registro = $resultado->fetch_assoc()) {
+            $centros[] = $registro['nombre'];
+        }
+        return $centros;
+    }
+
+    public function get_precio_servicio($nombre_servicio)
     {
 
-        $sql = "SELECT * FROM  peluqueros";
+        $sql = "SELECT Precio FROM servicios WHERE Nombre = '$nombre_servicio'";
+        $resultado = $this->db->query($sql);
+        $registro = $resultado->fetch_assoc();
+        echo "pita";
+        return $registro['Precio'];
+    }
+
+    public function get_datos_by_cliente($cliente)
+    {
+
+        $sql = "SELECT * FROM  citas WHERE cliente ='$cliente'";
         $resultado = $this->db->query($sql);
         while ($registro = $resultado->fetch_assoc()) {
             $this->datos[] = $registro;
@@ -32,7 +67,8 @@ class Citas_modelo{
         return $this->datos;
     }
 
-    public function get_citas(){
+    public function get_citas()
+    {
         $sql = "SELECT * FROM citas";
         $resultado = $this->db->query($sql);
         while ($registro = $resultado->fetch_assoc()) {
@@ -59,11 +95,12 @@ class Citas_modelo{
         return $this->db->query($sql);
     }
 
-    public function insertar_citas($peluquero, $cliente, $servicio, $centro, $fecha){
+    public function insertar_citas($peluquero, $cliente, $servicio, $centro, $fecha)
+    {
         $sql = "INSERT INTO `citas` (`peluquero`, `cliente`, `servicio`, `centro`, `fecha`) VALUES ('$peluquero', '$cliente', '$servicio', '$centro', '$fecha')";
         return $this->db->query($sql);
     }
-    
+
 
 
 }
