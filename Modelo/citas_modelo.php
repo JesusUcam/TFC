@@ -77,8 +77,20 @@ class Citas_modelo
         return $this->datos;
     }
 
-    public function borrar_citas($id)
-    {
+    public function get_citasCliente($usuario){
+        
+        console_log($consulta);
+        $sql = "SELECT * FROM citas WHERE cliente = $usuario";
+        $consulta = $this->db->query($sql);
+        console_log($sql);
+        console_log($consulta);
+        if ($registro = $consulta->fetch_assoc()) {
+            return $registro;
+        }
+        return null;
+    }
+
+    public function borrar_citas($id){
         $sql = "DELETE FROM citas WHERE id_cita = $id";
         return $this->db->query($sql);
     }

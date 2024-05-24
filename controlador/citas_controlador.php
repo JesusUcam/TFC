@@ -1,7 +1,7 @@
 <?php
 //session_start();
-function home()
-{
+
+function home(){
     require_once ("modelo/citas_modelo.php");
 
     $error = '';
@@ -19,12 +19,13 @@ function home()
         }
 
     }
-
+  
     // Obtener los datos necesarios para la vista desde el modelo
     $servicios = $datos->get_servicios();
     $peluqueros = $datos->get_peluqueros();
     $centros = $datos->get_centros();
     require_once ("vista/cita_vista.php");
+  
 }
 
 ?>
