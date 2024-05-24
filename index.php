@@ -13,6 +13,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/modal.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- <link rel="stylesheet" href="CSS/contact.css"> -->
     <script src="JS/dropdown_menu.js" defer></script>
 </head>
@@ -21,11 +22,12 @@
 
     <?php
 
-        require_once("vista/header.php");
-        require_once("controlador/front_controlador.php");
-        include ('vista/footer.php');
+    require_once ("vista/header.php");
+    require_once ("controlador/front_controlador.php");
+    include ('vista/footer.php');
 
     ?>
 
 </body>
+
 </html>

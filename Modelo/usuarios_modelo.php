@@ -1,17 +1,20 @@
 <?php
 
-class Usuarios_modelo{
+class Usuarios_modelo
+{
 
     private $db; //conexion con la bbdd
     private $datos; //registros recuperados de la bbdd
 
-    public function __construct(){
-        require_once("modelo/conectar.php");
+    public function __construct()
+    {
+        require_once ("modelo/conectar.php");
         $this->db = Conectar::conexion();
         $this->datos = array();
     }
 
-    public function get_usuarios(){
+    public function get_usuarios()
+    {
         $sql = "SELECT * FROM clientes, peluqueros";
         $consulta = $this->db->query($sql);
         while ($registro = $consulta->fetch_assoc()) {
@@ -20,7 +23,8 @@ class Usuarios_modelo{
         return $this->datos;
     }
 
-    public function login($user, $password){
+    public function login($user, $password)
+    {
         $login = false;
         $sql = "SELECT * FROM peluqueros p, clientes c
                 WHERE (p.email = '$user' AND p.clave = '$password')

@@ -24,36 +24,36 @@
         <h2>Servicios</h2>
         <form action="" method="post">
 
-        <h3>¿Que necesitas?</h3>
-        <select name="servicio" id="">
-            <option value="corte">Corte</option>
-            <option value="corteyBarba">Corte y barba</option>
-            <option value="barba">Barba</option>
-            <option value="tinte">Tinte de pelo</option>
-            <option value="tinteyCorte">Tinte y corte</option>
-            <option value="premium">Especial premium (lavado + tratamiento + corte + barba + estilizado)</option>
+            <h3>¿Que necesitas?</h3>
+            <select name="servicio" id="">
+                <option value="corte">Corte</option>
+                <option value="corteyBarba">Corte y barba</option>
+                <option value="barba">Barba</option>
+                <option value="tinte">Tinte de pelo</option>
+                <option value="tinteyCorte">Tinte y corte</option>
+                <option value="premium">Especial premium (lavado + tratamiento + corte + barba + estilizado)</option>
 
-        </select>
+            </select>
 
-        <h3>Selecciona uno de nuestros barberos</h3>
+            <h3>Selecciona uno de nuestros barberos</h3>
             <select name="peluquero" id="">
                 <option value="jesus">Jesus</option>
                 <option value="alex">Alejandro</option>
                 <option value="vecario">Vecario</option>
 
             </select>
-        
-        <select name="centro" id="">
-            <option value="Cartagena">Cartagena</option>
-            <option value="Murcia">Murcia</option>
-        </select>    
 
-        <h3>Fecha de tu cita</h3>
-        <input type="date" name="fecha" id="fecha">
+            <select name="centro" id="">
+                <option value="Cartagena">Cartagena</option>
+                <option value="Murcia">Murcia</option>
+            </select>
 
-        <input type="submit" name="guardar" value="Enviar">
+            <h3>Fecha de tu cita</h3>
+            <input type="date" name="fecha" id="fecha">
 
-        </form> 
+            <input type="submit" name="guardar" value="Enviar">
+
+        </form>
     </main>
 
     <footer>
