@@ -24,6 +24,8 @@ function home()
     $servicios = $datos->get_servicios();
     $peluqueros = $datos->get_peluqueros();
     $centros = $datos->get_centros();
+    $citas = $datos->get_citas();
+    
     require_once ("vista/cita_vista.php");
 }
 
