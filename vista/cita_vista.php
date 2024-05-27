@@ -52,7 +52,7 @@
 
             <input type="submit" name="guardar" value="Enviar">
 
-            <h1 id="cositas"></h1>
+            <div id="listado_citas"></div>
             <script src="JS/pedirCita.js" defer></script>
             
 

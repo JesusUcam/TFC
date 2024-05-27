@@ -1,4 +1,7 @@
 //Los centros me sobran?
+let listado = document.querySelector("#listado_citas");
+console.log(listado);
+
 let peluquerosStr = document.getElementById('datos_peluqueros').value;
 let serviciosStr = document.getElementById('datos_servicios').value;
 let centrosStr = document.getElementById('datos_centros').value;
@@ -9,7 +12,7 @@ let datos_servicios = JSON.parse(serviciosStr);
 let datos_centros = JSON.parse(centrosStr);
 let datos_citas = JSON.parse(citasStr);
 
-console.log(datos_citas);
+// console.log(datos_citas);
 
 //Peferencias del cliente
 let centro_seleccionado = document.querySelector("#centroSeleccionado").value;
@@ -59,13 +62,14 @@ datos_citas.forEach(cita => {
         datos_servicios.forEach(servicio => {
 
             if (servicio.nombre == servicio_de_cita) {
-                console.log("Conseguido");
+                
                 let [hours, minutes] = servicio.duracion.split(':').map(Number); // Convertir a números
                 if (hours > 0) {
                     minutes += 60 * hours;
                 }
                 duracion2 = minutes;
                 precio2 = servicio.precio;
+
             }
         });
         let duracion_milisegundos2 = duracion2 * 60000; // 1 minuto = 60000 milisegundos
@@ -74,32 +78,98 @@ datos_citas.forEach(cita => {
         
         citas_del_peluquero.push(fecha_y_duracion);
 
-        console.log(fecha_y_duracion);
+        // console.log(fecha_y_duracion);
 
     }
 
 });
 
+//IMPORTANTE Deberia limitar las citas recogidas a solo las que sean de después del día actual.
 let fecha = new Date();
-let fecha_milisegundos = fecha.getTime();
+let cita_milisegundos = fecha.getTime(); // FECHA ACTUAL
+let fecha_semana_siguiente = cita_milisegundos + (7 * 24 * 60 * 60000); // una semana después
 
-citas_del_peluquero.forEach(fecha_cita => {
+const horaInicio = 9; // 9 AM
+const horaFin = 22; // 10 PM
 
-    console.log(fecha_cita);
+let citas_no_disponibles = [];
+let citas_disponibles = [];
+
+let num_citas_mostrar = 0;
+
+while (cita_milisegundos < fecha_semana_siguiente) {
+    let ndate1 = new Date(cita_milisegundos);
     
-    let fecha_cita_inicio = fecha_cita[0];
-    let fecha_cita_terminada = fecha_cita[0] + fecha_cita[1];
-
-    let ndate1 = new Date(fecha_cita_inicio);
-    let ndate2 = new Date(fecha_cita_terminada);
-
-    console.log(fecha_milisegundos - fecha_cita_inicio);
-    console.log(fecha_milisegundos - fecha_cita_terminada);
-    console.log(duracion_milisegundos);
-
-    if (fecha_milisegundos>fecha_cita) {
-
+    // Si es domingo, saltar al siguiente día
+    if (ndate1.getDay() === 0) {
+        cita_milisegundos += 24 * 60 * 60000; // Sumar 24 horas
+        continue;
     }
-    console.log(ndate1);
-    console.log(ndate2);
+
+    // Si la hora es antes de 9 AM, ajustar a 9 AM del mismo día
+    if (ndate1.getHours() < horaInicio) {
+        ndate1.setHours(horaInicio, 0, 0, 0);
+        cita_milisegundos = ndate1.getTime();
+    }
+
+    // Si la hora es después de 10 PM, ajustar a 9 AM del siguiente día
+    if (ndate1.getHours() >= horaFin) {
+        ndate1.setHours(horaInicio, 0, 0, 0);
+        cita_milisegundos = ndate1.getTime() + (24 * 60 * 60000); // Sumar 24 horas
+        continue;
+    }
+
+    let cita_milisegundos_fin = cita_milisegundos + duracion_milisegundos;
+    let ndate2 = new Date(cita_milisegundos_fin);
+
+    let fecha_temporalFormateada1 = new Intl.DateTimeFormat('es-ES', opcionesfecha_temporal).format(ndate1);
+    let fecha_temporalFormateada2 = new Intl.DateTimeFormat('es-ES', opcionesfecha_temporal).format(ndate2);
+
+    let estaDisponible = true;
+
+    citas_del_peluquero.forEach(fecha_cita => {
+        let fecha_cita_inicio = fecha_cita[0];
+        let fecha_cita_terminada = fecha_cita[0] + fecha_cita[1];
+
+        if ((cita_milisegundos > fecha_cita_inicio && cita_milisegundos < fecha_cita_terminada) ||
+            (cita_milisegundos_fin > fecha_cita_inicio && cita_milisegundos_fin < fecha_cita_terminada)) {
+            estaDisponible = false;
+            citas_no_disponibles.push(fecha_temporalFormateada1);
+        }
+    });
+
+    if (estaDisponible) {
+        citas_disponibles.push(fecha_temporalFormateada1);
+    }
+
+    // Incrementar el tiempo para la próxima cita
+    cita_milisegundos += duracion_milisegundos;
+    num_citas_mostrar++;
+}
+
+console.log("Citas Disponibles: ", citas_disponibles);
+console.log("Citas No Disponibles: ", citas_no_disponibles);
+
+
+citas_disponibles.forEach(element => {
+    let opcion = document.createElement("p");
+    opcion.setAttribute("style", "background-color: white; padding: 10px; border-radius: 5px; transition: background-color 0.3s, transform 0.3s;");
+    opcion.textContent = element;
+    
+    opcion.onmouseover = function() {
+        opcion.style.backgroundColor = "#f0f0f0";
+        opcion.style.transform = "scale(1.05)";
+    };
+    
+    opcion.onmouseout = function() {
+        opcion.style.backgroundColor = "white";
+        opcion.style.transform = "scale(1)";
+    };
+
+    opcion.addEventListener("click", function() {
+        console.log(element);
+    });
+    
+    listado.appendChild(opcion);
+
 });
