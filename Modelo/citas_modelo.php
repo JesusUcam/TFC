@@ -1,10 +1,10 @@
 <?php
 
-class Citas_modelo
-{
+class Citas_modelo {
 
     private $db;
     private $datos;
+    private $datosServicios;
 
     public function __construct()
     {
@@ -15,13 +15,12 @@ class Citas_modelo
 
     public function get_servicios()
     {
-        $sql = "SELECT Nombre FROM servicios";
-        $resultado = $this->db->query($sql);
-        $servicios = array();
-        while ($registro = $resultado->fetch_assoc()) {
-            $servicios[] = $registro['Nombre'];
+        $sql = "SELECT nombre, duracion, precio FROM servicios";
+        $consulta = $this->db->query($sql);
+        while ($registro = $consulta->fetch_assoc()) {
+            $this->datosServicios[] = $registro;
         }
-        return $servicios;
+        return $this->datosServicios;
     }
 
     public function get_peluqueros()
