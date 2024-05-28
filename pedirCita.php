@@ -22,7 +22,7 @@
     <main>
         <h1>Pide cita online</h1>
         <h2>Servicios</h2>
-        <form action="" method="post">
+        <form action="index.php" method="post">
 
             <h3>¿Que necesitas?</h3>
             <select name="servicio" id="">
