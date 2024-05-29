@@ -21,7 +21,7 @@
     <main class="nosotrosMain">
 
 
-            <div class="divNosotrosMain">
+
 
                 <div class="divNosotrosCentros">
 
@@ -35,7 +35,7 @@
                             <h2 style="color: white;">Cartagena</h2>
                     </div>
                 </div>
-                </div>
+
             </div>
     </main>
  
