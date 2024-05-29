@@ -25,6 +25,15 @@ function home(){
     $peluqueros = $datos->get_peluqueros();
     $centros = $datos->get_centros();
     $citas = $datos->get_citas();
+
+    console_log("servicios");
+    console_log($servicios);
+    console_log("peluqueros");
+    console_log($peluqueros);
+    console_log("centros");
+    console_log($centros);
+    console_log("citas");
+    console_log($citas);
     
     require_once ("vista/cita_vista.php");
   

@@ -39,7 +39,7 @@ function home(){
             console_log("email encontrado!!!");
             $_SESSION['email'] = $email;
             // PREGUNTAR A PELIGROS SI LE VALE ESTE HEADER LOCATION
-            header("Location: index.php");
+            // header("Location: index.php");
         } else {
             console_log("email no encontrado");
             if ($email != '') {
@@ -81,6 +81,6 @@ function clienteCitas() {
 
 function desconectar(){
     session_destroy();
-    header("Location: index.php");
+    // header("Location: index.php");
 }
 ?>

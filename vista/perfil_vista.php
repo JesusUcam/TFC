@@ -1,6 +1,6 @@
 <?php
 
-console_log("asdfhjaskdfhjkhkj");
+console_log("perfil_vista");
 console_log($cliente_datos);
 
 if (isset($cliente_datos)) {
