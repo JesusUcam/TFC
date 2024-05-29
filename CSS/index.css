@@ -30,14 +30,16 @@ header{
     position: relative;
     padding: 0 2rem;
     background: none;
+    z-index: 10;
 }
+
 
 main{
     height: 100vh;
     background-image: url(../media/background2jpg.jpg);
     background-size: cover;
     background-position: center;
-    margin-top: 0;
+    margin-top: 60px;
 }
 
 .mainIndex{
@@ -226,6 +228,7 @@ main{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-image: none;
     background-color: white;
+    
 }
 
 .nosotrosMain {
@@ -234,25 +237,24 @@ main{
     font-family: Arial, san-serif;
     background-color: white;
 
-
 }
 
 .divNosotrosMain{
     background-color: white;
     text-align: center;
-
+    padding: 0;
     display: flex; 
     justify-content: center; 
     align-items: center;
 }
 
 .divNosotrosCentros{
-    margin-top: 10%;
+    margin-top: 9.9%;
 }
 
 .NosotrosMurcia, .NosotrosCartagena {
     position: relative;
-    width: 100%;
+    width: 50%;
     height: 50vh;
     background-size: cover;
     background-position: center;
@@ -288,7 +290,6 @@ main{
     font-size: 30px;
     color: white; 
     position: relative; 
-    z-index: 1; 
     text-align: center; 
     margin-top: 15%;
     transform: translateY(-50%);

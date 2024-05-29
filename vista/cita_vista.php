@@ -1,7 +1,4 @@
 
-
-
-
     <?php require_once ("header.php"); 
     
     $peluqueros_json = json_encode($peluqueros);

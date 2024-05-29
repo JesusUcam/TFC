@@ -47,6 +47,7 @@
 
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/modal.css">
+    <link rel="stylesheet" href="CSS/pideCita.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- <link rel="stylesheet" href="CSS/contact.css"> -->
     <script src="JS/dropdown_menu.js" defer></script>
