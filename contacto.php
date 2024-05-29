@@ -12,9 +12,13 @@
     <link rel="stylesheet" href="CSS/contact.css">
     <script src="JS/dropdown_menu.js" defer></script>
 </head>
-<body>
-       <?php
-       include_once("vista/header.php");  ?>
+<body>  
+<header>
+        <?php
+            require_once("vista/header.php");
+        ?>
+
+    </header>
 
     <main>
         <div id="contact-form">

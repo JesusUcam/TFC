@@ -60,11 +60,11 @@
 
     ?>
 </head>
-    <main>
+    
         <?php
     require_once ("controlador/front_controlador.php");
     ?>
-    </main>
+   
     <footer>
     <?php
 

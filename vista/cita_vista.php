@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="CSS/pideCita.css">
 
 
-<body>
+
+
     <?php require_once ("header.php"); 
     
     $peluqueros_json = json_encode($peluqueros);
@@ -17,7 +17,7 @@
     ";
 
     ?>
-    <main>
+    <div class="pideCitaDiv">
         <h1>Pide cita online</h1>
         <h2>Servicios</h2>
         <form action="" method="post">
@@ -58,8 +58,5 @@
 
 
         </form>
-    </main>
 
-
-
-</body>
+        </div>

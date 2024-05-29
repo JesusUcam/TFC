@@ -466,12 +466,21 @@ main{
         display: block;
     }
 
+    .h2_Servicios{
+        margin-right: 100%;
+    }
+
+
 }
-@media (max-width: 576px) {
+@media (max-width: 400px ) {
 
     .dropdown_menu {
-        left: 2rem;
-        width: unset;
+        top: 40px;
+    }
+
+
+    .h2_Servicios{
+        margin-right: 100%;
     }
 
 }
