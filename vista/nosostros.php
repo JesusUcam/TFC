@@ -12,27 +12,32 @@
     <script src="JS/dropdown_menu.js" defer></script>
 </head>
 <body>
-    <header>
+  
         <?php
             require_once("header.php");
         ?>
 
-    </header>
-    <div class="main_Nosotros">
-    <div class="divNosotrosMain">
+   
+    <main class="nosotrosMain">
 
-    <div class="divNosotrosCentros">
-        <div class="tituloNosotros">
-            <div class="NosotrosMurcia">
-                <h2 style="color: white;">Murcia</h2>
+
+            <div class="divNosotrosMain">
+
+                <div class="divNosotrosCentros">
+
+                    <div class="tituloNosotros">
+
+                        <div class="NosotrosMurcia">
+                            <h2 style="color: white;">Murcia</h2>
+                        </div>
+
+                        <div class="NosotrosCartagena">
+                            <h2 style="color: white;">Cartagena</h2>
+                    </div>
+                </div>
+                </div>
             </div>
-            <div class="NosotrosCartagena">
-                <h2 style="color: white;">Cartagena</h2>
-            </div>
-        </div>
-    </div>
-    </div>
-    </div>
+    </main>
  
 
     <footer>

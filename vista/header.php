@@ -35,10 +35,10 @@ console.log("SESION INICIADA");
 
     <!-- Desplegables -->
     <div class="dropdown_menu">
-        <li><a href="vista/tienda.php">Tienda</a></li>
-        <li><a href="vista/nosostros.php">Sobre nosotros</a></li>
-        <li><a href="vista/servicios.php">Servicios</a></li>
-        <li><a href="vista/contacto.php">Contacto</a></li>
+        <li><a href="tienda.php">Tienda</a></li>
+        <li><a href="nosostros.php">Sobre nosotros</a></li>
+        <li><a href="servicios.php">Servicios</a></li>
+        <li><a href="contacto.php">Contacto</a></li>
         <li>
             <div class="foto_perfil">
                 <i class="fa-solid fa-user"></i>
@@ -67,10 +67,10 @@ console.log("NO HAY SESION INICIADA");
     <div class="navbar">
         <div class="logo"><a href="inicio_vista.php">J.A Barber Shop</a></div>
         <ul class="links">
-            <li><a href="vista/tienda.php">Tienda</a></li>
-            <li><a href="vista/nosostros.php">Sobre nosotros</a></li>
-            <li><a href="vista/servicios.php">Servicios</a></li>
-            <li><a href="vista/contacto.php">Contacto</a></li>
+            <li><a href="tienda.php">Tienda</a></li>
+            <li><a href="nosostros.php">Sobre nosotros</a></li>
+            <li><a href="servicios.php">Servicios</a></li>
+            <li><a href="contacto.php">Contacto</a></li>
         </ul>
         <a href="#" class="action_btn">Iniciar Sesión</a>
         <div class="toggle_btn">
@@ -81,10 +81,10 @@ console.log("NO HAY SESION INICIADA");
 
     <!-- Desplegables -->
     <div class="dropdown_menu">
-        <li><a href="vista/tienda.php">Tienda</a></li>
-        <li><a href="vista/nosostros.php">Sobre nosotros</a></li>
-        <li><a href="vista/servicios.php">Servicios</a></li>
-        <li><a href="vista/contacto.php">Contacto</a></li>
+        <li><a href="tienda.php">Tienda</a></li>
+        <li><a href="nosostros.php">Sobre nosotros</a></li>
+        <li><a href="servicios.php">Servicios</a></li>
+        <li><a href="contacto.php">Contacto</a></li>
         <li><a href="#" class="action_btn">Iniciar Sesión</a></li>
     </div>
 
@@ -116,7 +116,7 @@ console.log("NO HAY SESION INICIADA");
 
     </div>
 </div>
-<script src="JS/iniciar_sesion.js" defer></script>
+<script src="../JS/iniciar_sesion.js" defer></script>
 <?php
 }
 ?>
