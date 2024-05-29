@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="CSS/header.css">
+<link rel="stylesheet" href="../CSS/header.css">
 <script>
     console.log("---HEADER---");
 </script>
@@ -21,7 +21,7 @@ console.log("SESION INICIADA");
             <li><a href="contacto.php">Contacto</a></li>
             <li>
                 <div class="foto_perfil">
-                    <img src="media/user_image.png" alt="foto de perfil de usuarios por defecto">
+                    <img src="../media/user_image.png" alt="foto de perfil de usuarios por defecto">
                 </div>
             </li>
         </ul>
