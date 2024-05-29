@@ -33,13 +33,20 @@ header{
 }
 
 main{
-
     height: 100vh;
     background-image: url(../media/background2jpg.jpg);
     background-size: cover;
     background-position: center;
+    margin-top: 0;
 }
 
+.mainIndex{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
 
 .navbar{
     width: 100%;
@@ -189,12 +196,30 @@ main{
     justify-content: center;
 }
 
-.main_Nosotros {
-    padding: 20px;
-    background-color: white;
-    background-image: none;
-    padding: 0 0 10vh 0;
+.mainContacto{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
 }
+
+.mainContacto{
+    color: #c0c0c0;
+    height: 100vh;
+    font-family: Arial, san-serif;
+    background: linear-gradient(to top right, #222222 20%, #adadad 80%);
+    background-image: url(../media/Background3.jpg);
+    background-size: cover;
+}
+
+
+.main_Nosotros {
+    
+}
+
+
 
 .divNosotrosMain{
     background-color: white;
@@ -450,6 +475,43 @@ main{
     background-color: black; 
 }
 /*------------------------------------*/
+
+/*FOOOTERR*/
+
+footer{
+
+
+
+    background-color: #000;
+    color: white;
+    text-align: center;
+
+    position:relative;
+    bottom: 0%;
+    width: 100%;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.5s;
+
+
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .column {
+    width: 30%; /* Ancho de cada columna */
+    padding: 20px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+/**/
 
 /* RESPONSIVE */
 @media (max-width: 992px) {

@@ -13,12 +13,12 @@ console.log("SESION INICIADA");
 
 <header>
     <div class="navbar">
-        <div class="logo"><a href="index.php">J.A Barber Shop</a></div>
+        <div class="logo"><a href="inicio_vista.php">J.A Barber Shop</a></div>
         <ul class="links">
-            <li><a href="vista/tienda.php">Tienda</a></li>
-            <li><a href="vista/nosostros.php">Sobre nosotros</a></li>
-            <li><a href="vista/servicios.php">Servicios</a></li>
-            <li><a href="vista/contacto.php">Contacto</a></li>
+            <li><a href="tienda.php">Tienda</a></li>
+            <li><a href="nosostros.php">Sobre nosotros</a></li>
+            <li><a href="servicios.php">Servicios</a></li>
+            <li><a href="contacto.php">Contacto</a></li>
             <li>
                 <div class="foto_perfil">
                     <img src="media/user_image.png" alt="foto de perfil de usuarios por defecto">
@@ -65,7 +65,7 @@ console.log("NO HAY SESION INICIADA");
 
 <header>
     <div class="navbar">
-        <div class="logo"><a href="index.php">J.A Barber Shop</a></div>
+        <div class="logo"><a href="inicio_vista.php">J.A Barber Shop</a></div>
         <ul class="links">
             <li><a href="vista/tienda.php">Tienda</a></li>
             <li><a href="vista/nosostros.php">Sobre nosotros</a></li>
