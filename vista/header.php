@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../CSS/header.css">
+<link rel="stylesheet" href="CSS/header.css">
 <script>
     console.log("---HEADER---");
 </script>
@@ -13,7 +13,7 @@ console.log("SESION INICIADA");
 
 <header>
     <div class="navbar">
-        <div class="logo"><a href="inicio_vista.php">J.A Barber Shop</a></div>
+        <div class="logo"><a href="index.php">J.A Barber Shop</a></div>
         <ul class="links">
             <li><a href="tienda.php">Tienda</a></li>
             <li><a href="nosostros.php">Sobre nosotros</a></li>
@@ -21,7 +21,7 @@ console.log("SESION INICIADA");
             <li><a href="contacto.php">Contacto</a></li>
             <li>
                 <div class="foto_perfil">
-                    <img src="../media/user_image.png" alt="foto de perfil de usuarios por defecto">
+                    <img src="media/user_image.png" alt="foto de perfil de usuarios por defecto">
                 </div>
             </li>
         </ul>
@@ -65,7 +65,7 @@ console.log("NO HAY SESION INICIADA");
 
 <header>
     <div class="navbar">
-        <div class="logo"><a href="inicio_vista.php">J.A Barber Shop</a></div>
+        <div class="logo"><a href="index.php">J.A Barber Shop</a></div>
         <ul class="links">
             <li><a href="tienda.php">Tienda</a></li>
             <li><a href="nosostros.php">Sobre nosotros</a></li>
@@ -116,7 +116,7 @@ console.log("NO HAY SESION INICIADA");
 
     </div>
 </div>
-<script src="../JS/iniciar_sesion.js" defer></script>
+<script src="JS/iniciar_sesion.js" defer></script>
 <?php
 }
 ?>
