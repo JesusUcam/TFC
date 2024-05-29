@@ -1,5 +1,3 @@
-
-// FALTA MOSTRAR BIEN LAS CITAS Y UN BOTÓN PARA VER MÁS SEMANAS. Con mostrar bien las citas me refiero a que sale el dia actual y el dia actual 7 dias despues
 //Los centros me sobran?
 let listado = document.querySelector("#listado_citas");
 console.log(listado);
@@ -95,8 +93,7 @@ const horaInicio = 9; // 9 AM
 const horaFin = 22; // 10 PM
 
 let citas_no_disponibles = [];
-
-let citas_disponibles = [[], [], [], [], [], []];
+let citas_disponibles = [];
 
 let num_citas_mostrar = 0;
 
@@ -125,8 +122,8 @@ while (cita_milisegundos < fecha_semana_siguiente) {
     let cita_milisegundos_fin = cita_milisegundos + duracion_milisegundos;
     let ndate2 = new Date(cita_milisegundos_fin);
 
-    // let fecha_temporalFormateada1 = new Intl.DateTimeFormat('es-ES', opcionesfecha_temporal).format(ndate1);
-    // let fecha_temporalFormateada2 = new Intl.DateTimeFormat('es-ES', opcionesfecha_temporal).format(ndate2);
+    let fecha_temporalFormateada1 = new Intl.DateTimeFormat('es-ES', opcionesfecha_temporal).format(ndate1);
+    let fecha_temporalFormateada2 = new Intl.DateTimeFormat('es-ES', opcionesfecha_temporal).format(ndate2);
 
     let estaDisponible = true;
 
@@ -142,11 +139,7 @@ while (cita_milisegundos < fecha_semana_siguiente) {
     });
 
     if (estaDisponible) {
-        
-        citas_disponibles[ndate1.getDay()-1].push(ndate1); //-1 porque el domingo (0) nunca está
-        // console.log(ndate1);
-        // citas_disponibles.push(fecha_temporalFormateada1);
-
+        citas_disponibles.push(fecha_temporalFormateada1);
     }
 
     // Incrementar el tiempo para la próxima cita
@@ -154,76 +147,29 @@ while (cita_milisegundos < fecha_semana_siguiente) {
     num_citas_mostrar++;
 }
 
-console.log(citas_disponibles);
+console.log("Citas Disponibles: ", citas_disponibles);
+console.log("Citas No Disponibles: ", citas_no_disponibles);
 
-//MOSTRAR CITAS EN LA PÁGINA
-citas_disponibles.forEach(citas_dia => {
 
-    listado.setAttribute("style", "display: flex; color: black; flex-direction: row; justify-content: space-between;")
-
-    let dia = document.createElement("div");
-    let dia_titulo = document.createElement("h2");
+citas_disponibles.forEach(element => {
+    let opcion = document.createElement("p");
+    opcion.setAttribute("style", "background-color: white; padding: 10px; border-radius: 5px; transition: background-color 0.3s, transform 0.3s;");
+    opcion.textContent = element;
     
-    let opcionesfecha_temporal_dia = { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric'
+    opcion.onmouseover = function() {
+        opcion.style.backgroundColor = "#f0f0f0";
+        opcion.style.transform = "scale(1.05)";
     };
-    let fecha_temporalFormateadaX = new Intl.DateTimeFormat('es-ES').format(citas_dia[0]);
-    dia_titulo.textContent = fecha_temporalFormateadaX;
-    dia_titulo.setAttribute("style", "background-color: white; color: black; padding: 10px; border-radius: 2px; transition: background-color 0.3s, transform 0.3s;")
-
-    dia.appendChild(dia_titulo);
-
-    console.log(fecha_temporalFormateadaX);
-
-    citas_dia.forEach(cita_temp => {
-
-        let opcion = document.createElement("p");
-        opcion.setAttribute("class", `cita${fecha_temporalFormateadaX}`);
-        opcion.setAttribute("style", "display: none;");
-        opcion.textContent = cita_temp;
-
-        opcion.onmouseover = function() {
-            opcion.style.backgroundColor = "#f0f0f0";
-            opcion.style.transform = "scale(1.05)";
-        };
     
-        opcion.onmouseout = function() {
-            opcion.style.backgroundColor = "white";
-            opcion.style.transform = "scale(1)";
-        };
+    opcion.onmouseout = function() {
+        opcion.style.backgroundColor = "white";
+        opcion.style.transform = "scale(1)";
+    };
 
-        opcion.addEventListener("click", function() {
-            console.log(cita_temp);
-        });
+    opcion.addEventListener("click", function() {
+        console.log(element);
+    });
     
-        dia.appendChild(opcion);
-
-    })
-
-    let desplegado=false;
-    dia_titulo.addEventListener("click", function() {
-        let childs = dia.children;
-        if (desplegado) {
-            for (let i2 = 1; i2 < childs.length; i2++) {
-                const child = childs[i2];
-                child.setAttribute("style", "display: none;");
-            }
-            desplegado=false;
-        } else {
-            for (let i2 = 1; i2 < childs.length; i2++) {
-                const child = childs[i2];
-                child.setAttribute("style", "background-color: white; padding: 10px; border-radius: 2px; transition: background-color 0.3s, transform 0.3s;");
-            }
-            desplegado=true;
-        }
-    })
-
-    listado.appendChild(dia);
+    listado.appendChild(opcion);
 
 });
