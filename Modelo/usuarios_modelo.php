@@ -23,7 +23,7 @@ class Usuarios_modelo
         return $this->datos;
     }
 
-    public function login($usuario, $clave){
+    public function login($usuario, $clave) {
       
         $login = false;
         $sql = "SELECT * FROM peluqueros p, clientes c
@@ -31,7 +31,10 @@ class Usuarios_modelo
                 OR (c.email = '$usuario' AND c.clave = '$clave')";
         if ($consulta = $this->db->query($sql)) {
             if ($consulta->num_rows > 0) {
+                console_log("Se ha logaead");
                 $login = true;
+            } else {
+                console_log("NO se ha logaead");
             }
         }
         return $login;

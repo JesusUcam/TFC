@@ -3,7 +3,7 @@
 class Conectar {
     public static function conexion() {
         try {
-            $conexion = new mysqli("localhost", "root", "", "ja_barbershop");
+            $conexion = new mysqli("localhost", "root", "", "ja_barbershop2");
         } catch (Exception $e) {
             die('Error' . $e->getMessage("error al conectar con la bbdd"));
         }
