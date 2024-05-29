@@ -66,7 +66,7 @@ main{
     cursor: pointer;
     display: none;
 }
-
+/* ACTION BTN*/
 .action_btn {
     background-color: orange;
     color: #fff;
@@ -88,6 +88,28 @@ main{
 .action_btn:active{
     scale: 0.95;
 }
+/* CS BTN */
+.cs_btn {
+    background-color: rgb(255, 30, 0);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+}
+
+.cs_btn:hover {
+    scale: 1.05;
+    color: #fff;
+}
+
+.cs_btn:active{
+    scale: 0.95;
+}
 /* MAIN */
 .banner{
     height: calc(100vh - 60px);
@@ -106,6 +128,7 @@ main{
 
 /* DROPDOWN MENU */
 .dropdown_menu{
+    z-index: 100;
     position: absolute;
     right: 2rem;
     top: 60px;
@@ -134,6 +157,262 @@ main{
     display: flex;
     justify-content: center;
 }
+/* USER CONFIG */
+.user_config{
+    z-index: 100;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgb(202, 202, 202);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.user_config.open{
+    height: 150px;
+}
+
+.user_config li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user_config .action_btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main_Nosotros {
+    padding: 20px;
+    background-color: white;
+    background-image: none;
+    padding: 0 0 10vh 0;
+}
+
+.divNosotrosMain{
+    background-color: white;
+    text-align: center;
+    padding: 20vh 0 0 20vh;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+/*-------------Servicios -------------*/
+
+/*Mejora = en vez de texto haya imagenes y que al pulsar salga un modal que muestre*/
+.main_Servicios {
+    padding: 20px;
+    background-color: white;
+    padding: 0 0 0 0;
+    background-size: cover;
+}
+
+
+
+.divServiciosMain {
+    background: linear-gradient(to right, black, #f0f0f0);
+    background-color: white;
+    text-align: center;
+    padding: 20vh 20px;
+    display: flex;
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center;
+    gap: 5vh; 
+}
+
+.Servicios_h1 {
+    margin: 0;
+    max-width: 600px; 
+    font-size: 4rem; 
+    color: #dadada; 
+    font-weight: bold; 
+    text-align: left;
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+
+}
+
+.Servicios_p {
+    max-width: 500px; 
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: right; 
+    color: #3a3a3a; 
+    line-height: 1.6;
+     
+}
+
+.linea-vertical {
+    height: 22vh; 
+    width: 2px; 
+    background-color: #333; 
+    transform: rotate(25deg);
+
+}
+
+.serparadorServicios {
+    height: 10vh; 
+    width: 100%; 
+    background-color: orange;
+    border-bottom:solid 2px grey;
+    border-top:solid 2px grey;
+
+}
+
+.h2_Servicios {
+    font-size: 7vh;
+    padding: 2vh 0vh 0 50vh;
+    color: #3a3a3a;
+    margin-bottom: 10vh;
+}
+
+
+.divNosotrosCentros{
+    margin-top: 40vh;
+    margin-bottom: 20vh;
+}
+.ServiciosServicios {
+
+    background-image: url("../media/wallpaper1.png") !important;
+    background-size: cover;
+    background-color: transparent;
+
+   
+}
+
+.tituloNosotros {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    height: 100px; 
+    width: 100%;
+    padding: 0; 
+    margin: 0; 
+    box-sizing: border-box;
+}
+
+.tituloNosotros div {
+    width: 100%; 
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.NosotrosMurcia, .NosotrosCartagena {
+    position: relative;
+    width: 100vw;
+    height: 30vmax;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+
+.NosotrosMurcia:before,
+.NosotrosCartagena:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)); /* Gradiente oscuro */
+}
+
+.NosotrosMurcia{
+    background-image: url('../media/serviciosMurcia.jpg');
+}
+
+.NosotrosCartagena{
+    background-image: url('../media/serviciosCartagena.jpg');
+}
+
+
+.NosotrosMurcia h2, .NosotrosCartagena h2 {
+    font-size: 30px;
+    color: white; 
+    position: relative; 
+    z-index: 1; 
+    text-align: center; 
+    margin-top: 15%;
+    transform: translateY(-50%);
+    padding: 10px; 
+}
+
+.containerServicios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 15%;
+    box-sizing: border-box;
+}
+
+.cardServicios {
+    background-color: white;
+    width: calc(50% - 20px);
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.cardServicios:hover {
+    transform: scale(1.05);
+}
+
+.cardServicios h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.cardServicios p {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.cardServicios .precioServicios {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+.botonServicios {
+    display: inline-block;
+    margin-left: 32vh;
+    margin-top: 3vh;
+    margin-bottom: 10vh;
+    padding: 10px 20px;
+    background-color: orange; 
+    color: #fff; 
+    text-decoration: none; 
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 1rem; 
+    border: none; 
+    cursor: pointer; 
+}
+
+.botonServicios:hover {
+    background-color: black; 
+}
+/*------------------------------------*/
 
 /* RESPONSIVE */
 @media (max-width: 992px) {

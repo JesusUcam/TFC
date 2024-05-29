@@ -1,3 +1,4 @@
+
 // FALTA MOSTRAR BIEN LAS CITAS Y UN BOTÓN PARA VER MÁS SEMANAS. Con mostrar bien las citas me refiero a que sale el dia actual y el dia actual 7 dias despues
 //Los centros me sobran?
 let listado = document.querySelector("#listado_citas");
@@ -94,6 +95,7 @@ const horaInicio = 9; // 9 AM
 const horaFin = 22; // 10 PM
 
 let citas_no_disponibles = [];
+
 let citas_disponibles = [[], [], [], [], [], []];
 
 let num_citas_mostrar = 0;
@@ -132,7 +134,6 @@ while (cita_milisegundos < fecha_semana_siguiente) {
         let fecha_cita_inicio = fecha_cita[0];
         let fecha_cita_terminada = fecha_cita[0] + fecha_cita[1];
 
-        //Cita no disponible
         if ((cita_milisegundos > fecha_cita_inicio && cita_milisegundos < fecha_cita_terminada) ||
             (cita_milisegundos_fin > fecha_cita_inicio && cita_milisegundos_fin < fecha_cita_terminada)) {
             estaDisponible = false;
@@ -145,6 +146,7 @@ while (cita_milisegundos < fecha_semana_siguiente) {
         citas_disponibles[ndate1.getDay()-1].push(ndate1); //-1 porque el domingo (0) nunca está
         // console.log(ndate1);
         // citas_disponibles.push(fecha_temporalFormateada1);
+
     }
 
     // Incrementar el tiempo para la próxima cita

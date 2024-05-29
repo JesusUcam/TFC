@@ -53,14 +53,25 @@
 </head>
 
 <body>
-
+    <head>
     <?php
 
     require_once ("vista/header.php");
-    require_once ("controlador/front_controlador.php");
-    include ('vista/footer.php');
 
     ?>
+</head>
+    <main>
+        <?php
+    require_once ("controlador/front_controlador.php");
+    ?>
+    </main>
+    <footer>
+    <?php
+
+    include ('vista/footer.php');
+    ?>
+    </footer>
+    
 
 </body>
 
