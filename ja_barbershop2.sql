@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-05-2024 a las 23:51:12
+-- Tiempo de generación: 29-05-2024 a las 23:01:19
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -30,10 +30,17 @@ USE `ja_barbershop2`;
 --
 
 CREATE TABLE `centros` (
-  `id` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `ubicacion` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `centros`
+--
+
+INSERT INTO `centros` (`nombre`, `ubicacion`) VALUES
+('BarberShop_ElRaal', 'C. San Antonio, 303, 30139 Murcia'),
+('BarberShop_VistaAlegre', 'Vista Alegre, Pl. Pintor Inocencio Medina Vera, 8, 30007 Murcia');
 
 -- --------------------------------------------------------
 
@@ -43,10 +50,10 @@ CREATE TABLE `centros` (
 
 CREATE TABLE `citas` (
   `id` int(11) NOT NULL,
-  `id_peluquero` int(11) NOT NULL,
-  `id_cliente` int(11) NOT NULL,
-  `id_servicio` int(11) NOT NULL,
-  `id_centro` int(11) NOT NULL,
+  `peluquero` varchar(64) NOT NULL,
+  `cliente` varchar(64) NOT NULL,
+  `servicio` int(11) NOT NULL,
+  `centro` varchar(64) NOT NULL,
   `fecha` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -57,7 +64,6 @@ CREATE TABLE `citas` (
 --
 
 CREATE TABLE `clientes` (
-  `id` int(16) NOT NULL,
   `email` varchar(64) NOT NULL,
   `clave` varchar(32) NOT NULL,
   `nombre` varchar(32) NOT NULL,
@@ -65,6 +71,14 @@ CREATE TABLE `clientes` (
   `telefono` int(9) NOT NULL,
   `foto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`email`, `clave`, `nombre`, `apellidos`, `telefono`, `foto`) VALUES
+('2', '2', '2', '2', 2, '2'),
+('acifuentes@ucam.edu', 'cifu32', 'Alejandro', 'Cifuentes Rueda', 616777222, '');
 
 -- --------------------------------------------------------
 
@@ -73,15 +87,23 @@ CREATE TABLE `clientes` (
 --
 
 CREATE TABLE `peluqueros` (
-  `id` int(16) NOT NULL,
   `nif` varchar(9) NOT NULL,
   `email` varchar(64) NOT NULL,
   `clave` varchar(32) NOT NULL,
   `nombre` varchar(32) NOT NULL,
   `apellidos` varchar(64) NOT NULL,
   `telefono` int(9) NOT NULL,
-  `foto` varchar(255) NOT NULL
+  `foto` varchar(255) NOT NULL,
+  `centro_peluquero` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `peluqueros`
+--
+
+INSERT INTO `peluqueros` (`nif`, `email`, `clave`, `nombre`, `apellidos`, `telefono`, `foto`, `centro_peluquero`) VALUES
+('1', '1', '1', '1', '1', 1, '1', 'BarberShop_VistaAlegre'),
+('089754942', 'peligros@ucam.es', '1234', 'Peligros del Rosario', 'Martinez Lopez', 555555555, 'peligros.jpg', 'BarberShop_ElRaal');
 
 -- --------------------------------------------------------
 
@@ -110,8 +132,17 @@ CREATE TABLE `servicios` (
   `nombre` varchar(255) NOT NULL,
   `descripcion` varchar(255) NOT NULL,
   `duracion` time NOT NULL,
-  `precio` decimal(8,2) NOT NULL
+  `precio` decimal(8,2) NOT NULL,
+  `imagen` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `servicios`
+--
+
+INSERT INTO `servicios` (`id`, `nombre`, `descripcion`, `duracion`, `precio`, `imagen`) VALUES
+(1, 'Afeitado Clasico', 'Afeitado clasico con navaja de barbero y toallas calientes.', '00:45:00', 8.00, 'AfeitadoClasico.jpg'),
+(2, 'Corte de Pelo para Niños', 'Corte de pelo divertido y adecuado para niños.', '00:15:00', 8.00, 'CorteNinio.jpg');
 
 -- --------------------------------------------------------
 
@@ -135,29 +166,30 @@ CREATE TABLE `ventas` (
 -- Indices de la tabla `centros`
 --
 ALTER TABLE `centros`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`nombre`);
 
 --
 -- Indices de la tabla `citas`
 --
 ALTER TABLE `citas`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_citas_peluqueros` (`id_peluquero`),
-  ADD KEY `fk_citas_clientes` (`id_cliente`),
-  ADD KEY `fk_citas_servicios` (`id_servicio`),
-  ADD KEY `fk_citas_centros` (`id_centro`);
+  ADD KEY `fk_citas_peluqueros` (`peluquero`),
+  ADD KEY `fk_citas_clientes` (`cliente`),
+  ADD KEY `fk_citas_servicios` (`servicio`),
+  ADD KEY `fk_citas_centros` (`centro`);
 
 --
 -- Indices de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  ADD PRIMARY KEY (`id`,`email`);
+  ADD PRIMARY KEY (`email`);
 
 --
 -- Indices de la tabla `peluqueros`
 --
 ALTER TABLE `peluqueros`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`email`),
+  ADD KEY `fk_peluqueros_centros` (`centro_peluquero`);
 
 --
 -- Indices de la tabla `productos`
@@ -184,28 +216,10 @@ ALTER TABLE `ventas`
 --
 
 --
--- AUTO_INCREMENT de la tabla `centros`
---
-ALTER TABLE `centros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `clientes`
---
-ALTER TABLE `clientes`
-  MODIFY `id` int(16) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `peluqueros`
---
-ALTER TABLE `peluqueros`
-  MODIFY `id` int(16) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -217,7 +231,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `servicios`
 --
 ALTER TABLE `servicios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
@@ -233,10 +247,16 @@ ALTER TABLE `ventas`
 -- Filtros para la tabla `citas`
 --
 ALTER TABLE `citas`
-  ADD CONSTRAINT `fk_citas_centros` FOREIGN KEY (`id_centro`) REFERENCES `centros` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_citas_clientes` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_citas_peluqueros` FOREIGN KEY (`id_peluquero`) REFERENCES `peluqueros` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_citas_servicios` FOREIGN KEY (`id_servicio`) REFERENCES `servicios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_citas_centros` FOREIGN KEY (`centro`) REFERENCES `centros` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_citas_clientes` FOREIGN KEY (`cliente`) REFERENCES `clientes` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_citas_peluqueros` FOREIGN KEY (`peluquero`) REFERENCES `peluqueros` (`email`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_citas_servicios` FOREIGN KEY (`servicio`) REFERENCES `servicios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `peluqueros`
+--
+ALTER TABLE `peluqueros`
+  ADD CONSTRAINT `fk_peluqueros_centros` FOREIGN KEY (`centro_peluquero`) REFERENCES `centros` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `ventas`
