@@ -13,6 +13,7 @@
     ";
 
     ?>
+                  
 <main class="mainCitaVista">
     <div class="pideCitaDiv">
         <h1>Pide cita online</h1>
@@ -51,8 +52,6 @@
 
             <div id="listado_citas"></div>
             <script src="JS/pedirCita.js" defer></script>
-
-
 
         </form>
 

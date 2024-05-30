@@ -19,7 +19,6 @@
     require_once ("vista/header.php");
     ?>
 
-
     <main class="nosotrosMain">
 
         <div class="NosotrosMurcia">
@@ -37,18 +36,12 @@
                 <section>
 
         </div>
-
-
-
-
-
-
     </main>
-
 
     <footer>
         <?php require_once ("vista/footer.php"); ?>
     </footer>
+
 </body>
 
 </html>

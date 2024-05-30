@@ -14,15 +14,15 @@
 </head>
 
 <body>
-    <header>
-
         <?php
             require_once("vista/header.php");
+            console_log("llamada desde servicios.php");
         ?>
 
     </header>
 
     <div class="main_Servicios">
+      
         <div class="divServiciosMain">
             <h1 class="Servicios_h1">Forja tu estilo</h1>
             <div class="linea-vertical"></div>
@@ -39,6 +39,7 @@
 
             <div class="containerServicios">
                 <?php
+
 try {
     $conexion = new mysqli("localhost", "root", "", "ja_barbershop");
     if ($conexion->connect_error) {
@@ -77,14 +78,9 @@ $conexion->close();
 
     </div>
 
-
-
-
     </div>
     <footer>
         <?php require_once("vista/footer.php");?>
-
-
     </footer>
 
 </body>

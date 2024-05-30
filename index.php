@@ -59,14 +59,15 @@
         <?php
 
     require_once ("vista/header.php");
-
     ?>
-    </head>
 
+    <script>console.log("llamada desde index.php");</script>
+</head>
+    
     <?php
     require_once ("controlador/front_controlador.php");
     ?>
-
+   
     <footer>
         <?php
 
