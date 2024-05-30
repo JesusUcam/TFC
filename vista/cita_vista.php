@@ -1,5 +1,4 @@
-
-    <?php require_once ("header.php"); 
+<?php require_once ("header.php"); 
     
     $peluqueros_json = json_encode($peluqueros);
     $servicios_json = json_encode($servicios);
@@ -14,6 +13,8 @@
     ";
 
     ?>
+                  
+<main class="mainCitaVista">
     <div class="pideCitaDiv">
         <h1>Pide cita online</h1>
         <h2>Servicios</h2>
@@ -51,9 +52,8 @@
 
             <div id="listado_citas"></div>
             <script src="JS/pedirCita.js" defer></script>
-            
-
 
         </form>
 
-        </div>
+    </div>
+</main>

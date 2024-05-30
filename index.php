@@ -14,12 +14,12 @@
 
 
 
-        <link rel="stylesheet" href="JS/libreria/weekly-calendar-main/index.css">
-        <script type="module" src="JS/libreria/weekly-calendar-main/calendar.js" async defer></script>
-        <script type="module" src="JS/libreria/weekly-calendar-main/lookUpDaysHours.js" async defer></script>
-        <!-- <script type="module" src="JS\libreria\weekly-calendar-main\index.js" async defer></script> -->
+    <link rel="stylesheet" href="JS/libreria/weekly-calendar-main/index.css">
+    <script type="module" src="JS/libreria/weekly-calendar-main/calendar.js" async defer></script>
+    <script type="module" src="JS/libreria/weekly-calendar-main/lookUpDaysHours.js" async defer></script>
+    <!-- <script type="module" src="JS\libreria\weekly-calendar-main\index.js" async defer></script> -->
 
-            <!-- 
+    <!-- 
             DIV PARA EL CALENDARIO SEMANAL
             <div class="calendar-container" id="calendar-container">
                 <div class="calendar-header" id="calendar-header">
@@ -54,25 +54,27 @@
 </head>
 
 <body>
+
     <head>
-    <?php
+        <?php
 
     require_once ("vista/header.php");
     ?>
+
     <script>console.log("llamada desde index.php");</script>
 </head>
     
-        <?php
+    <?php
     require_once ("controlador/front_controlador.php");
     ?>
    
     <footer>
-    <?php
+        <?php
 
     include ('vista/footer.php');
     ?>
     </footer>
-    
+
 
 </body>
 

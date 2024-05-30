@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +12,8 @@
     <link rel="stylesheet" href="CSS/index.css">
     <script src="JS/dropdown_menu.js" defer></script>
 </head>
+
 <body>
-<header>
-   
         <?php
             require_once("vista/header.php");
             console_log("llamada desde servicios.php");
@@ -22,22 +22,24 @@
     </header>
 
     <div class="main_Servicios">
-    <div class="divServiciosMain">
-        <h1 class="Servicios_h1">Forja tu estilo</h1>
-        <div class="linea-vertical"></div>
-        <p class="Servicios_p">Bienvenido a J.A.BarberShop.<br>donde el estilo clásico se encuentra con la modernidad. <br>Disfruta de un corte impecable, un afeitado perfecto y un ambiente inigualable. ¡Descubre tu mejor versión con nosotros!</p>
-    </div>
-    
-    <div class="serparadorServicios">
-    <h2 class="h2_Servicios">Nuestros Servicios</h2>
-    </div>
+      
+        <div class="divServiciosMain">
+            <h1 class="Servicios_h1">Forja tu estilo</h1>
+            <div class="linea-vertical"></div>
+            <p class="Servicios_p">Bienvenido a J.A.BarberShop.<br>donde el estilo clásico se encuentra con la
+                modernidad. <br>Disfruta de un corte impecable, un afeitado perfecto y un ambiente inigualable.
+                ¡Descubre tu mejor versión con nosotros!</p>
+        </div>
 
-    <div class="ServiciosServicios">
-    
-       
+        <div class="serparadorServicios">
+            <h2 class="h2_Servicios">Nuestros Servicios</h2>
+        </div>
 
-        <div class="containerServicios">
-        <?php
+        <div class="ServiciosServicios">
+
+            <div class="containerServicios">
+                <?php
+
 try {
     $conexion = new mysqli("localhost", "root", "", "ja_barbershop");
     if ($conexion->connect_error) {
@@ -73,18 +75,14 @@ $conexion->close();
             </div>
             <a href="Contacto.php" class="botonServicios"> No dudes en contactarnos</a>
         </div>
-       
-        </div>
 
-
-        
+    </div>
 
     </div>
     <footer>
-    <?php require_once("vista/footer.php");?>
-
-
+        <?php require_once("vista/footer.php");?>
     </footer>
-  
+
 </body>
+
 </html>

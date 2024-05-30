@@ -1,7 +1,9 @@
 <?php
 //conectar
-class Conectar {
-    public static function conexion() {
+class Conectar
+{
+    public static function conexion()
+    {
         try {
             $conexion = new mysqli("localhost", "root", "", "ja_barbershop2");
         } catch (Exception $e) {
