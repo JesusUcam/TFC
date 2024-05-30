@@ -1,6 +1,5 @@
-<!-- Usaremos este footer para todas las páginas asi ahorramos código -->
-<link rel="stylesheet" href="CSS/footer.css">
-<footer>
+
+
     
 <div class="container">
     <div class="column">
@@ -42,4 +41,3 @@
 <br>
 
 
-</footer>

@@ -2,18 +2,18 @@
 
 console_log("Probando cosas");
 // console_log($_POST["accion"]);
-if(isset($_POST["accion"])){
+if (isset($_POST["accion"])) {
 
     //estamos ante una llamada a ajax
-echo '  <form action="" method="post">
+    echo '  <form action="" method="post">
 <label for="fname">Nombre:</label>
-<input type="text" id="fname" name="nombre" value="'.$_POST['nombre'].'" readonly>
+<input type="text" id="fname" name="nombre" value="' . $_POST['nombre'] . '" readonly>
 
 <label for="fedad">Edad:</label>
-<input type="text" id="ledad" name="edad" value="'.$_POST['edad'].'">
+<input type="text" id="ledad" name="edad" value="' . $_POST['edad'] . '">
 
 <label for="fcorreo">Correo:</label>
-<input type="text" id="fcorreo" name="correo" value="'.$_POST['correo'].'">
+<input type="text" id="fcorreo" name="correo" value="' . $_POST['correo'] . '">
 
 <input type="submit" name="modificar" value="Modificar">
 </form>
@@ -22,9 +22,10 @@ echo '  <form action="" method="post">
 }
 
 
-function home(){
+function home()
+{
 
-    require_once("modelo/usuarios_modelo.php");
+    require_once ("modelo/usuarios_modelo.php");
 
     $error = '';
     $datos = new Usuarios_modelo();
@@ -47,27 +48,29 @@ function home(){
             }
         }
     }
-    
+
     $array_datos = $datos->get_usuarios();
-    require_once("vista/inicio_vista.php");
+    require_once ("vista/inicio_vista.php");
 
 }
 
-function editar_perfil() {
-    require_once("modelo/usuarios_modelo.php");
+function editar_perfil()
+{
+    require_once ("modelo/usuarios_modelo.php");
 
     $email = $_SESSION['email'];
     $datos = new Usuarios_modelo();
 
     $cliente_datos = $datos->get_cliente($email);
-    require_once("vista/perfil_vista.php");
-    
+    require_once ("vista/perfil_vista.php");
+
 }
 
-function clienteCitas() {
+function clienteCitas()
+{
 
-    require_once("modelo/usuarios_modelo.php");
-    require_once("modelo/citas_modelo.php");
+    require_once ("modelo/usuarios_modelo.php");
+    require_once ("modelo/citas_modelo.php");
 
     $email = $_SESSION['email'];
     $datosCli = new Usuarios_modelo();
@@ -76,11 +79,12 @@ function clienteCitas() {
     $cliente_datos = $datosCli->get_cliente($email);
     $cita_datos = $datosCit->get_citasCliente($email);
 
-    require_once("vista/citasCliente_vista.php");
+    require_once ("vista/citasCliente_vista.php");
 }
 
-function desconectar(){
+function desconectar()
+{
     session_destroy();
-    header("Location: index.php");
+    // header("Location: index.php");
 }
 ?>

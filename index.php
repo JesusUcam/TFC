@@ -14,12 +14,12 @@
 
 
 
-        <link rel="stylesheet" href="JS/libreria/weekly-calendar-main/index.css">
-        <script type="module" src="JS/libreria/weekly-calendar-main/calendar.js" async defer></script>
-        <script type="module" src="JS/libreria/weekly-calendar-main/lookUpDaysHours.js" async defer></script>
-        <!-- <script type="module" src="JS\libreria\weekly-calendar-main\index.js" async defer></script> -->
+    <link rel="stylesheet" href="JS/libreria/weekly-calendar-main/index.css">
+    <script type="module" src="JS/libreria/weekly-calendar-main/calendar.js" async defer></script>
+    <script type="module" src="JS/libreria/weekly-calendar-main/lookUpDaysHours.js" async defer></script>
+    <!-- <script type="module" src="JS\libreria\weekly-calendar-main\index.js" async defer></script> -->
 
-            <!-- 
+    <!-- 
             DIV PARA EL CALENDARIO SEMANAL
             <div class="calendar-container" id="calendar-container">
                 <div class="calendar-header" id="calendar-header">
@@ -47,31 +47,33 @@
 
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/modal.css">
+    <link rel="stylesheet" href="CSS/pideCita.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- <link rel="stylesheet" href="CSS/contact.css"> -->
     <script src="JS/dropdown_menu.js" defer></script>
 </head>
 
 <body>
+
     <head>
-    <?php
+        <?php
 
     require_once ("vista/header.php");
 
     ?>
-</head>
-    <main>
-        <?php
+    </head>
+
+    <?php
     require_once ("controlador/front_controlador.php");
     ?>
-    </main>
+
     <footer>
-    <?php
+        <?php
 
     include ('vista/footer.php');
     ?>
     </footer>
-    
+
 
 </body>
 
