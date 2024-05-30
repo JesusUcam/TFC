@@ -23,9 +23,10 @@
     <main class="nosotrosMain">
 
         <div class="NosotrosMurcia">
+
         </div>
 
-        <div id='contenedoresNosotros'>
+        <div class='contenedoresNosotros'>
 
             <section id='contIzquierda'>
                 Main Content
@@ -36,6 +37,10 @@
                 <section>
 
         </div>
+
+
+
+
 
 
     </main>
