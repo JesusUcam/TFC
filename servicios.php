@@ -14,15 +14,15 @@
 </head>
 
 <body>
-        <?php
+    <?php
             require_once("vista/header.php");
-            console_log("llamada desde servicios.php");
+            
         ?>
 
     </header>
 
     <div class="main_Servicios">
-      
+
         <div class="divServiciosMain">
             <h1 class="Servicios_h1">Forja tu estilo</h1>
             <div class="linea-vertical"></div>
