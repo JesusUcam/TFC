@@ -5,8 +5,6 @@ function console_log($data) {
     echo '</script>';
 }
 
-console_log("---FCONTOLLER---");
-
 define('CONTROLLERS_FOLDER', "controlador/");
 define('DEFAULT_CONTROLLER', "usuarios");
 define('DEFAULT_ACTION', "home");

@@ -15,6 +15,7 @@
 <header>
         <?php
             require_once("vista/header.php");
+            console_log("llamada desde tienda.php");
         ?>
 
     </header>
