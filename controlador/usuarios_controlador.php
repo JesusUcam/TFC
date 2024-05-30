@@ -1,6 +1,4 @@
 <?php
-
-console_log("Probando cosas");
 // console_log($_POST["accion"]);
 if(isset($_POST["accion"])){
 
@@ -35,10 +33,11 @@ function home(){
         console_log($email);
         console_log($clave);
 
-        if ($datos->login($email, $clave)) {
+        $login_data = $datos->login($email, $clave);
+        if ($login_data['login']) {
             console_log("email encontrado!!!");
             $_SESSION['email'] = $email;
-            // PREGUNTAR A PELIGROS SI LE VALE ESTE HEADER LOCATION
+            $_SESSION['user_type'] = $login_data['type'];
             // header("Location: index.php");
         } else {
             console_log("email no encontrado");
@@ -46,11 +45,10 @@ function home(){
                 $error = "Usuario o contraseña no encontrado";
             }
         }
-    }
+    } 
     
     $array_datos = $datos->get_usuarios();
     require_once("vista/inicio_vista.php");
-
 }
 
 function editar_perfil() {
@@ -77,6 +75,15 @@ function clienteCitas() {
     $cita_datos = $datosCit->get_citasCliente($email);
 
     require_once("vista/citasCliente_vista.php");
+}
+
+function barbers(){
+
+    require_once("modelo/usuarios_modelo.php");
+    require_once("modelo/citas_modelo.php");
+
+    require_once("vista/barbers_vista.php");
+    
 }
 
 function desconectar(){

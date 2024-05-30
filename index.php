@@ -58,8 +58,8 @@
     <?php
 
     require_once ("vista/header.php");
-
     ?>
+    <script>console.log("llamada desde index.php");</script>
 </head>
     
         <?php
