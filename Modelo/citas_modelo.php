@@ -1,6 +1,7 @@
 <?php
 
-class Citas_modelo {
+class Citas_modelo
+{
 
     private $db;
     private $datos;
@@ -76,9 +77,10 @@ class Citas_modelo {
         return $this->datos;
     }
 
-    public function get_citasCliente($usuario){
-        
-        console_log($consulta);
+    public function get_citasCliente($usuario)
+    {
+
+
         $sql = "SELECT * FROM citas WHERE cliente = $usuario";
         $consulta = $this->db->query($sql);
         console_log($sql);
@@ -89,7 +91,8 @@ class Citas_modelo {
         return null;
     }
 
-    public function borrar_citas($id){
+    public function borrar_citas($id)
+    {
         $sql = "DELETE FROM citas WHERE id_cita = $id";
         return $this->db->query($sql);
     }

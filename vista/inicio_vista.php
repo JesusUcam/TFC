@@ -1,8 +1,8 @@
 <?php
-require_once("header.php");
+require_once ("header.php");
 // QUITAR QUE ESTO DA ERROR, PERO YA LO TENEMOS
-console_log(($_SESSION['email']));
-console_log(($_SESSION['user_type']));
+
+
 console_log("llamada desde inicio_vista.php");
 // console_log($array_datos);
 ?>
@@ -11,7 +11,8 @@ console_log("llamada desde inicio_vista.php");
     <div class="banner">
         <h1>BIENVENIDO</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates culpa autem ullam corporis laborum</p>
-        <p>dolores et exercitationem aliquid molestiae libero voluptatum, ad sed deserunt totam pariatur nulla, quiipsam alias.</p>
+        <p>dolores et exercitationem aliquid molestiae libero voluptatum, ad sed deserunt totam pariatur nulla, quiipsam
+            alias.</p>
     </div>
 </main>
 
@@ -19,9 +20,10 @@ console_log("llamada desde inicio_vista.php");
 <footer>
     <?php
 
-    require_once("footer.php");
+    require_once ("footer.php");
 
     ?>
 </footer>
 </body>
+
 </html>

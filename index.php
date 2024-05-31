@@ -24,13 +24,15 @@
     require_once ("vista/header.php");
     ?>
 
-    <script>console.log("llamada desde index.php");</script>
-</head>
-    
-    <?php
+        <script>
+        console.log("llamada desde index.php");
+        </script>
+    </head>
+    <main>
+        <?php
     require_once ("controlador/front_controlador.php");
     ?>
-   
+    </main>
     <footer>
         <?php
 

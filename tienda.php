@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,18 +12,21 @@
     <link rel="stylesheet" href="CSS/index.css">
     <script src="JS/dropdown_menu.js" defer></script>
 </head>
+
 <body>
-<header>
+    <header>
         <?php
-            require_once("vista/header.php");
-            console_log("llamada desde tienda.php");
+        require_once ("vista/header.php");
+
         ?>
 
     </header>
-    
+
+
     <footer>
-    <?php require_once("vista/footer.php");?>
-</footer>
-    
+        <?php require_once ("vista/footer.php"); ?>
+    </footer>
+
 </body>
+
 </html>
