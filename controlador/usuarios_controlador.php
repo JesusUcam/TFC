@@ -85,6 +85,11 @@ function barbers(){
 
     require_once("modelo/usuarios_modelo.php");
     require_once("modelo/citas_modelo.php");
+    
+    $datos = new Usuarios_modelo();
+
+    $email = $_SESSION['email'];
+    $peluquero_citas = $datos->get_citas_usuario($email);
 
     require_once("vista/barbers_vista.php");
     
