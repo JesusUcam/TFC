@@ -1,6 +1,3 @@
-
-
-    
 <div class="container">
     <div class="column">
         <h2>Contacto</h2>
@@ -39,5 +36,3 @@
 <br>
 <br>
 <br>
-
-
