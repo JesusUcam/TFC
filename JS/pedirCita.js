@@ -1,5 +1,6 @@
 // FALTA MOSTRAR BIEN LAS CITAS Y UN BOTÓN PARA VER MÁS SEMANAS. Con mostrar bien las citas me refiero a que sale el dia actual y el dia actual 7 dias despues
 let listado = document.querySelector("#listado_citas");
+let fechaSeleccionada = document.querySelector("#fechaSeleccionada");
 let submit = document.querySelector("#enviar_formulario_citas");
 console.log(listado);
 
@@ -20,6 +21,7 @@ let peluquero_selector = document.querySelector("#peluqueroSeleccionado");
 let servicio_selector = document.querySelector("#servicioSeleccionado");
 //Peferencias del cliente
 let peluquero_seleccionado = peluquero_selector.value;
+let peluquero_seleccionado_email = "";
 let servicio_seleccionado = servicio_selector.value;
 let centro_seleccionado = centro_selector.value;
 
@@ -32,8 +34,16 @@ let semana_citas = 0;
 
 //Eventlisteners que guardan preferencias de los clientes
 peluquero_selector.addEventListener("change", function escoger_peluquero() {
+
     limpieza_listado();
+
     peluquero_seleccionado = peluquero_selector.value;
+   
+    let selectedIndex = peluquero_selector.selectedIndex;
+    // console.log(peluquero_selector.children()[selectedIndex].getAttribute("email_peluquero"));
+    peluquero_seleccionado_email = peluquero_selector.getElementsByTagName("option")[selectedIndex].getAttribute("email_peluquero");
+    console.log(peluquero_seleccionado_email);
+
 });
 
 centro_selector.addEventListener("change", function escoger_centro() {
@@ -48,9 +58,6 @@ servicio_selector.addEventListener("change", function escoger_servicio() {
 });
 
 btn_comprobar_citas.addEventListener("click", function habilitar_citas_as() {
-    console.log(peluquero_seleccionado);
-    console.log(servicio_seleccionado);
-    console.log(centro_seleccionado);
     listado.innerHTML = "";
     get_citas(semana_citas);
     btn_comprobar_citas_siguiente.setAttribute("style", "display: inline-block");
@@ -74,15 +81,6 @@ btn_comprobar_citas_anterior.addEventListener("click", function citas_anteriores
     }
 });
 
-submit.addEventListener("mouseover", function name(params) {
-    console.log("Hola mundo");
-    console.log(peluquero_seleccionado);
-    console.log(servicio_seleccionado);
-    console.log(centro_seleccionado);
-    console.log("FALTA SOLO LA CITA Y ENVIAR");
-    console.log("ADIOS");
-})
-
 ///////////////////////////////////////////
 //////////////// FUNCIONES ////////////////
 ///////////////////////////////////////////
@@ -95,15 +93,23 @@ function options_de_peluqueros() {
     datos_peluqueros.forEach(peluquero => {
         
         if (centro_seleccionado==peluquero['centro_peluquero']) {
+
             let opcion_peluquero = document.createElement("option");
             opcion_peluquero.setAttribute("value", peluquero['nombre'])
+            opcion_peluquero.setAttribute("email_peluquero", peluquero['email'])
             opcion_peluquero.textContent = peluquero['nombre'];
             peluquero_selector.appendChild(opcion_peluquero);
+
         }
 
     });
 
     peluquero_seleccionado = peluquero_selector.value;
+   
+    let selectedIndex = peluquero_selector.selectedIndex;
+    // console.log(peluquero_selector.children()[selectedIndex].getAttribute("email_peluquero"));
+    peluquero_seleccionado_email = peluquero_selector.getElementsByTagName("option")[selectedIndex].getAttribute("email_peluquero");
+    console.log(peluquero_seleccionado_email);
 
 }
 
@@ -153,12 +159,13 @@ function get_citas(semanas) {
     // let fecha_temporalFormateada = new Intl.DateTimeFormat('es-ES', opcionesfecha_temporal).format(fecha_temporal);
 
     let citas_del_peluquero = [];
+    // Array que recorre todas las citas que tenemos
     datos_citas.forEach(cita => {
 
         let fecha_temporal = new Date(cita.fecha);
 
-        // Obtenemos todas las citas
-        if (centro_seleccionado==cita.centro && peluquero_seleccionado==cita.peluquero) { //El centro sobra porque un peluquero no va a poder estar en 2 centros a la vez
+        //Aqui comparamos que el email del peluquero seleccionado no sea el mismo que el del peluquero que ya tiene una cita
+        if (peluquero_seleccionado_email==cita.peluquero) { //El centro sobra porque un peluquero no va a poder estar en 2 centros a la vez
 
             //Sacar a método
             let servicio_de_cita = cita.servicio;
@@ -182,8 +189,9 @@ function get_citas(semanas) {
             let fecha_y_duracion = [fecha_temporal.getTime(), duracion_milisegundos2]
             
             citas_del_peluquero.push(fecha_y_duracion);
+            console.log(fecha_y_duracion);
 
-        }
+        } 
 
     });
 
@@ -219,30 +227,24 @@ function get_citas(semanas) {
         }
 
         let cita_milisegundos_fin = cita_milisegundos + duracion_milisegundos;
-        let ndate2 = new Date(cita_milisegundos_fin);
-
-        // let fecha_temporalFormateada1 = new Intl.DateTimeFormat('es-ES', opcionesfecha_temporal).format(ndate1);
-        // let fecha_temporalFormateada2 = new Intl.DateTimeFormat('es-ES', opcionesfecha_temporal).format(ndate2);
-
         let estaDisponible = true;
 
         citas_del_peluquero.forEach(fecha_cita => {
             let fecha_cita_inicio = fecha_cita[0];
             let fecha_cita_terminada = fecha_cita[0] + fecha_cita[1];
-
-            if ((cita_milisegundos > fecha_cita_inicio && cita_milisegundos < fecha_cita_terminada) ||
-                (cita_milisegundos_fin > fecha_cita_inicio && cita_milisegundos_fin < fecha_cita_terminada)) {
+            if ((cita_milisegundos >= fecha_cita_inicio && cita_milisegundos < fecha_cita_terminada) ||
+                (cita_milisegundos_fin > fecha_cita_inicio && cita_milisegundos_fin <= fecha_cita_terminada)) {
                 estaDisponible = false;
-                citas_no_disponibles.push(fecha_temporalFormateada1);
             }
         });
 
         if (estaDisponible) {
             
+            console.log("Cita disponible");
             citas_disponibles[ndate1.getDay()-1].push(ndate1); //-1 porque el domingo (0) nunca está
-            // console.log(ndate1);
-            // citas_disponibles.push(fecha_temporalFormateada1);
 
+        } else {
+            console.log("cita no disponible");
         }
 
         // Incrementar el tiempo para la próxima cita
@@ -275,8 +277,6 @@ function get_citas(semanas) {
 
         dia.appendChild(dia_titulo);
 
-        // console.log(fecha_temporalFormateadaX);
-
         citas_dia.forEach(cita_temp => {
 
             let opcion = document.createElement("p");
@@ -296,6 +296,13 @@ function get_citas(semanas) {
 
             opcion.addEventListener("click", function() {
                 console.log(cita_temp);
+                
+                let fecha_para_BBDD = date => {
+                    const pad = n => n.toString().padStart(2, '0');
+                    return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
+                };
+                
+                fechaSeleccionada.setAttribute("value", fecha_para_BBDD(cita_temp));
             });
         
             dia.appendChild(opcion);

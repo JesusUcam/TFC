@@ -21,6 +21,7 @@
 
         <form action="" method="post">
             <div>
+
                 <h3>¿Qué necesitas?</h3>
                 <select name="servicio" id="servicioSeleccionado">
                     <?php foreach ($servicios as $servicio): ?>
@@ -46,6 +47,10 @@
                 </select>
             </div>
             <div>
+                <h3>fecha seleccionada: </h3>
+                <input type="text" name="fecha" id="fechaSeleccionada" readonly>
+            </div>
+            <div>
 
                 <button type="button" id="comprobar_citas">Comprobar citas</button>
                 <button type="button" id="comprobar_citas_anterior" style="display: none">Semana anterior</button>
@@ -55,7 +60,7 @@
 
             <br>
 
-            <input type="submit" name="guardar" value="Enviar" id="enviar_formulario_citas">
+            <input type="submit" name="guardar" value="Guardar" id="enviar_formulario_citas">
 
             <div id="listado_citas"></div>
             <script src="JS/pedirCita.js" defer></script>
