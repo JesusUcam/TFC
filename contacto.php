@@ -13,6 +13,8 @@
     <script type="module" src="JS/libreria/weekly-calendar-main/calendar.js" async defer></script>
     <script type="module" src="JS/libreria/weekly-calendar-main/lookUpDaysHours.js" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    </link>
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/contact.css">
     <script src="JS/dropdown_menu.js" defer></script>

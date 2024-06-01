@@ -369,7 +369,8 @@ header {
   margin-bottom: 2%;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to top right, #000 20%, #1d1e22 80%);
+  background: linear-gradient(to top left, #000 20%, #1d1e22 80%);
+  margin-top: 3%;
 }
 
 .tiendaMain h2 {

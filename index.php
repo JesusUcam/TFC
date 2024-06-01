@@ -12,9 +12,13 @@
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha384-Zpdj+E4SFoZq6GCYh5yP6D7Pj1kg6ih2uaA5SOelEX6Txqj9DDMdgjBDQ+77/bRf" crossorigin="anonymous">
 
 
     <link rel="stylesheet" href="JS/libreria/weekly-calendar-main/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    </link>
     <script type="module" src="JS/libreria/weekly-calendar-main/calendar.js" async defer></script>
     <script type="module" src="JS/libreria/weekly-calendar-main/lookUpDaysHours.js" async defer></script>
     <!-- <script type="module" src="JS\libreria\weekly-calendar-main\index.js" async defer></script> -->
@@ -58,8 +62,8 @@
     <head>
         <?php
 
-    require_once ("vista/header.php");
-    ?>
+        require_once ("vista/header.php");
+        ?>
 
         <script>
         console.log("llamada desde index.php");
@@ -67,14 +71,14 @@
     </head>
     <main>
         <?php
-    require_once ("controlador/front_controlador.php");
-    ?>
+        require_once ("controlador/front_controlador.php");
+        ?>
     </main>
     <footer>
         <?php
 
-    include ('vista/footer.php');
-    ?>
+        include ('vista/footer.php');
+        ?>
     </footer>
 
 

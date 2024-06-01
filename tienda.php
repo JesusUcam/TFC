@@ -12,6 +12,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha512-zCH1r2M3QDfWM1oE7GNcRGAX9cVJz7bx9Zp09paR3M6yH4xkf2dQt5ad6jAsldPM0y2AWdN2MeSDD/GhA+PvDw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    </link>
+
     <link rel="stylesheet" href="CSS/tienda.css">
     <script src="JS/dropdown_menu.js" defer></script>
     <script src="JS/tienda.js" defer></script>
