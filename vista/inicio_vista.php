@@ -10,15 +10,15 @@ console_log("llamada desde inicio_vista.php");
 <main class="index-main">
     <section class="index-banner">
         <div class="banner-content">
-            <h1>Welcome to J.A Barber Shop</h1>
-            <p>Your ultimate destination for grooming and styling.</p>
-            <a href="#services" class="action_btn">Explore Services</a>
+            <h1>Bienvenido a J.A Barber Shop</h1>
+            <p>La opcion para el cuidado de un hombre.</p>
+            <a href="servicios.php" class="action_btn">Nuestros servicios</a>
         </div>
     </section>
 
     <section id="services" class="index-services">
         <div class="services-container">
-            <h2>Our Services</h2>
+            <h2>Lo que hacemos</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <i class="fas fa-cut"></i>
