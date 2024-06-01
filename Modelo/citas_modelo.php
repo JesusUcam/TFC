@@ -26,12 +26,14 @@ class Citas_modelo
 
     public function get_peluqueros()
     {
-        $sql = "SELECT Nombre FROM peluqueros";
+        $sql = "SELECT nombre, centro_peluquero FROM peluqueros";
         $resultado = $this->db->query($sql);
         $peluqueros = array();
         while ($registro = $resultado->fetch_assoc()) {
-            $peluqueros[] = $registro['Nombre'];
+            console_log($registro);
+            $peluqueros[] = $registro;
         }
+        console_log($peluqueros);
         return $peluqueros;
     }
 
