@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="CSS/header.css">
+<script src="JS/validacion.js" defer></script>
 <?php
 session_start();
 if (isset($_SESSION['email'])) {
@@ -130,19 +131,20 @@ console.log("NO HAY SESIÓN INICIADA");
             <div>
                 <label for="email">
                     <span class="required">Email: </span>
-                    <input type="text" id="email" name="email" value="" placeholder="Su email" required="required"
+                    <input type="text" id="emailInicio" name="email" value="" placeholder="Su email" required="required"
                         tabindex="1" autofocus="autofocus">
                 </label>
             </div>
             <div>
                 <label for="clave">
                     <span class="required">Contraseña: </span>
-                    <input type="password" id="clave" name="clave" value="" placeholder="Su contraseña" tabindex="2"
-                        required="required">
+                    <input type="password" id="claveInicio" name="clave" value="" placeholder="Su contraseña"
+                        tabindex="2" required="required">
                 </label>
             </div>
             <div>
-                <button type="submit" id="btn-enviar" name="submit">Enviar</button>
+                <button type="button" onclick="validarInicioSesion()">Enviar</button>
+
             </div>
         </form>
     </div>
@@ -190,7 +192,8 @@ console.log("NO HAY SESIÓN INICIADA");
 
             </div>
             <div>
-                <input type="submit" name="submit" value="Registrar">
+                <input type="submit" name="submit" value="Registrar" onclick="return validarRegistro()">
+
 
             </div>
         </form>
