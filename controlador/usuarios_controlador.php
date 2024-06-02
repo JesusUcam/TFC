@@ -1,27 +1,7 @@
+<script>console.log("auxilio")</script>
 <?php
-// console_log($_POST["accion"]);
-if (isset($_POST["accion"])) {
 
-    //estamos ante una llamada a ajax
-    echo '  <form action="" method="post">
-<label for="fname">Nombre:</label>
-<input type="text" id="fname" name="nombre" value="' . $_POST['nombre'] . '" readonly>
-
-<label for="fedad">Edad:</label>
-<input type="text" id="ledad" name="edad" value="' . $_POST['edad'] . '">
-
-<label for="fcorreo">Correo:</label>
-<input type="text" id="fcorreo" name="correo" value="' . $_POST['correo'] . '">
-
-<input type="submit" name="modificar" value="Modificar">
-</form>
-<input type="submit" id="cancelar" name="cancelar" value="Cancelar" onclick=cancelar()>
-';
-}
-
-
-function home()
-{
+function home(){
 
     require_once ("modelo/usuarios_modelo.php");
 
@@ -55,8 +35,7 @@ function home()
 
 
 
-function insertar_clientes()
-{
+function insertar_clientes(){
     require_once ("modelo/usuarios_modelo.php");
     $datos = new Usuarios_modelo();
 
@@ -76,8 +55,7 @@ function insertar_clientes()
 
 
 
-function editar_perfil()
-{
+function editar_perfil(){
     require_once ("modelo/usuarios_modelo.php");
 
     $email = $_SESSION['email'];
@@ -88,11 +66,10 @@ function editar_perfil()
 
 }
 
-function clienteCitas()
-{
+function clienteCitas(){
 
-    require_once ("modelo/usuarios_modelo.php");
-    require_once ("modelo/citas_modelo.php");
+    require_once("modelo/usuarios_modelo.php");
+    require_once("modelo/citas_modelo.php");
 
     $email = $_SESSION['email'];
     $datosCli = new Usuarios_modelo();
@@ -104,27 +81,9 @@ function clienteCitas()
     require_once ("vista/citasCliente_vista.php");
 }
 
-function barbers()
-{
-
-    require_once ("modelo/usuarios_modelo.php");
-    require_once ("modelo/citas_modelo.php");
-    
-    $datos = new Usuarios_modelo();
-
-    $email = $_SESSION['email'];
-    $peluquero_citas = $datos->get_citas_usuario($email);
-  
-    require_once ("vista/barbers_vista.php");
-
-}
-
-
-
-
 function desconectar()
 {
     session_destroy();
-    // header("Location: index.php");
+    header("Location: index.php");
 }
 ?>
