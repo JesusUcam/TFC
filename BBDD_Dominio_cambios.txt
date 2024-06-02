@@ -1,6 +1,0 @@
-ddb226902 -> ja_barbershop
-ddb226901 -> ja_barbershop2
-
-Localhost-> bbdd.amcifuentesucam.com
-
-Pass: Pruebas1

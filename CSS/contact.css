@@ -4,7 +4,8 @@
   -moz-box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
-
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 header {
@@ -14,8 +15,7 @@ header {
 body {
   color: #c0c0c0;
   height: 100vh;
-  font-family: "Prata", serif;
-  font-size: 1.5rem;
+  font-family: Arial, san-serif;
   background: linear-gradient(to top right, #222222 20%, #adadad 80%);
   background-image: url(../media/Background3.jpg);
   background-size: cover;
@@ -121,6 +121,8 @@ textarea:required {
   color: #6ea070;
   display: none;
 }
+
+
 
 /* Make form look nice on smaller screens */
 @media only screen and (max-width: 580px) {

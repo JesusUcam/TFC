@@ -13,8 +13,7 @@ class Usuarios_modelo
         $this->datos = array();
     }
 
-    public function get_usuarios()
-    {
+    public function get_usuarios() {
         $sql = "SELECT * FROM clientes, peluqueros";
         $consulta = $this->db->query($sql);
         while ($registro = $consulta->fetch_assoc()) {
@@ -63,8 +62,24 @@ class Usuarios_modelo
         }
     }
 
-    public function get_cliente($usuario)
-    {
+    // public function login1($usuario, $clave) {
+      
+    //     $login = false;
+    //     $sql = "SELECT * FROM peluqueros p, clientes c
+    //             WHERE (p.email = '$usuario' AND p.clave = '$clave')
+    //             OR (c.email = '$usuario' AND c.clave = '$clave')";
+    //     if ($consulta = $this->db->query($sql)) {
+    //         if ($consulta->num_rows > 0) {
+    //             console_log("Se ha logaead");
+    //             $login = true;
+    //         } else {
+    //             console_log("NO se ha logaead");
+    //         }
+    //     }
+    //     return $login;
+    // }
+
+    public function get_cliente($usuario) { 
         $sql = "SELECT * FROM clientes WHERE email = '$usuario'";
         $consulta = $this->db->query($sql);
         if ($registro = $consulta->fetch_assoc()) {
@@ -73,8 +88,7 @@ class Usuarios_modelo
         return null; // Devuelve null si no se encuentra el cliente
     }
 
-    public function get_peluquero($usuario)
-    {
+    public function get_peluquero($usuario) { 
         $sql = "SELECT * FROM peluquero WHERE email = '$usuario'";
         $consulta = $this->db->query($sql);
         if ($registro = $consulta->fetch_assoc()) {
@@ -82,14 +96,6 @@ class Usuarios_modelo
         }
         return null; // Devuelve null si no se encuentra el cliente
     }
-
-    public function insertar_clientes($email, $nombre, $apellidos, $telefono, $clave)
-    {
-        $sql = "INSERT INTO `clientes` (`email`, `nombre`, `apellidos`, `telefono`, `clave`) VALUES ('$email', '$nombre', '$apellidos', '$telefono', '$clave')";
-        return $this->db->query($sql);
-    }
-
-}
 
     public function get_citas_usuario($usuario){
         $sql = "SELECT * FROM citas 
