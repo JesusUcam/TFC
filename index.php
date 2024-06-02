@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font Awesome sin descargar -->
     <title>J.A Barber Shop</title>
-
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/modal.css">
     <link rel="stylesheet" href="CSS/pideCita.css">
@@ -21,8 +20,8 @@
     <head>
         <?php
 
-    require_once ("vista/header.php");
-    ?>
+        require_once ("vista/header.php");
+        ?>
 
         <script>
         console.log("llamada desde index.php");
@@ -30,14 +29,14 @@
     </head>
     <main>
         <?php
-    require_once ("controlador/front_controlador.php");
-    ?>
+        require_once ("controlador/front_controlador.php");
+        ?>
     </main>
     <footer>
         <?php
 
-    include ('vista/footer.php');
-    ?>
+        include ('vista/footer.php');
+        ?>
     </footer>
 
 
