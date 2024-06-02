@@ -23,8 +23,7 @@ class Usuarios_modelo
         return $this->datos;
     }
 
-    public function login($usuario, $clave)
-    {
+    public function login($usuario, $clave) {
 
         $login = false;
         $sql = "SELECT * FROM clientes
@@ -64,24 +63,6 @@ class Usuarios_modelo
         }
     }
 
-    public function login1($usuario, $clave)
-    {
-
-        $login = false;
-        $sql = "SELECT * FROM peluqueros p, clientes c
-                WHERE (p.email = '$usuario' AND p.clave = '$clave')
-                OR (c.email = '$usuario' AND c.clave = '$clave')";
-        if ($consulta = $this->db->query($sql)) {
-            if ($consulta->num_rows > 0) {
-                console_log("Se ha logaead");
-                $login = true;
-            } else {
-                console_log("NO se ha logaead");
-            }
-        }
-        return $login;
-    }
-
     public function get_cliente($usuario)
     {
         $sql = "SELECT * FROM clientes WHERE email = '$usuario'";
@@ -106,6 +87,19 @@ class Usuarios_modelo
     {
         $sql = "INSERT INTO `clientes` (`email`, `nombre`, `apellidos`, `telefono`, `clave`) VALUES ('$email', '$nombre', '$apellidos', '$telefono', '$clave')";
         return $this->db->query($sql);
+    }
+
+}
+
+    public function get_citas_usuario($usuario){
+        $sql = "SELECT * FROM citas 
+                WHERE peluquero = '$usuario'
+                OR cliente = '$usuario'";
+        $consulta = $this->db->query($sql);
+        while ($registro = $consulta->fetch_assoc()) {
+            $this->datos[] = $registro;
+        }
+        return $this->datos;
     }
 
 }

@@ -1,21 +1,18 @@
 <?php
 
-class Citas_modelo
-{
+class Citas_modelo {
 
     private $db;
     private $datos;
     private $datosServicios;
 
-    public function __construct()
-    {
+    public function __construct() {
         require_once ("modelo/conectar.php");
         $this->db = Conectar::conexion();
         $this->datos = array();
     }
 
-    public function get_servicios()
-    {
+    public function get_servicios() {
         $sql = "SELECT nombre, duracion, precio FROM servicios";
         $consulta = $this->db->query($sql);
         while ($registro = $consulta->fetch_assoc()) {
@@ -24,19 +21,24 @@ class Citas_modelo
         return $this->datosServicios;
     }
 
-    public function get_peluqueros()
-    {
-        $sql = "SELECT Nombre FROM peluqueros";
+    public function get_peluqueros() {
+        $sql = "SELECT email, nombre, centro_peluquero FROM peluqueros";
         $resultado = $this->db->query($sql);
         $peluqueros = array();
         while ($registro = $resultado->fetch_assoc()) {
-            $peluqueros[] = $registro['Nombre'];
+            $peluqueros[] = $registro;
         }
         return $peluqueros;
     }
 
-    public function get_centros()
-    {
+    public function get_peluquero($nombre) {
+        $sql = "SELECT email FROM peluqueros WHERE nombre = '$nombre'";
+        $resultado = $this->db->query($sql);
+        $registro = $resultado->fetch_assoc(); // Aquí extraemos el valor de email
+        return $registro['email'];
+    }
+
+    public function get_centros() {
         $sql = "SELECT nombre FROM centros";
         $resultado = $this->db->query($sql);
         $centros = array();
@@ -46,20 +48,15 @@ class Citas_modelo
         return $centros;
     }
 
-    public function get_precio_servicio($nombre_servicio)
-    {
-
+    public function get_precio_servicio($nombre_servicio) {
         $sql = "SELECT Precio FROM servicios WHERE Nombre = '$nombre_servicio'";
         $resultado = $this->db->query($sql);
         $registro = $resultado->fetch_assoc();
-        echo "pita";
         return $registro['Precio'];
     }
 
-    public function get_datos_by_cliente($cliente)
-    {
-
-        $sql = "SELECT * FROM  citas WHERE cliente ='$cliente'";
+    public function get_datos_by_cliente($cliente) {
+        $sql = "SELECT * FROM citas WHERE cliente ='$cliente'";
         $resultado = $this->db->query($sql);
         while ($registro = $resultado->fetch_assoc()) {
             $this->datos[] = $registro;
@@ -67,8 +64,7 @@ class Citas_modelo
         return $this->datos;
     }
 
-    public function get_citas()
-    {
+    public function get_citas() {
         $sql = "SELECT * FROM citas";
         $resultado = $this->db->query($sql);
         while ($registro = $resultado->fetch_assoc()) {
@@ -77,35 +73,37 @@ class Citas_modelo
         return $this->datos;
     }
 
-    public function get_citasCliente($usuario)
-    {
-
-
+    public function get_citasCliente($usuario) {
         $sql = "SELECT * FROM citas WHERE cliente = $usuario";
         $consulta = $this->db->query($sql);
-        console_log($sql);
-        console_log($consulta);
         if ($registro = $consulta->fetch_assoc()) {
             return $registro;
         }
         return null;
     }
 
-    public function borrar_citas($id)
-    {
+    public function borrar_citas($id) {
         $sql = "DELETE FROM citas WHERE id_cita = $id";
         return $this->db->query($sql);
     }
 
-    public function insertar_citas($peluquero, $cliente, $servicio, $centro, $fecha)
-    {
-        $sql = "INSERT INTO `citas` (`peluquero`, `cliente`, `servicio`, `centro`, `fecha`) VALUES ('$peluquero', '$cliente', '$servicio', '$centro', '$fecha')";
-        return $this->db->query($sql);
+    public function insertar_citas($cliente, $servicio, $centro, $peluquero, $fecha) {
+        
+        $sql = "SELECT * FROM citas WHERE peluquero = '$peluquero' AND fecha = '$fecha'";
+        $resultado = $this->db->query($sql);
+        
+        if ($resultado->num_rows > 0) {
+            
+            return null;
+
+        } else {
+
+            $sql = "INSERT INTO citas (cliente, servicio, centro, peluquero, fecha) VALUES ('$cliente', '$servicio', '$centro', '$peluquero', '$fecha')";
+            return $this->db->query($sql);
+
+        }
     }
 
-
-
 }
-
 
 ?>

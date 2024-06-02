@@ -9,13 +9,18 @@ function home(){
 
     if (isset($_POST['guardar'])) {
         console_log('Guardando cita');
-        $peluquero = isset($_POST['peluquero']) ? $_POST['peluquero'] : '';
         $servicio = isset($_POST['servicio']) ? $_POST['servicio'] : '';
+        $peluquero = isset($_POST['peluquero']) ? $_POST['peluquero'] : '';
         $centro = isset($_POST['centro']) ? $_POST['centro'] : '';
         $fecha = isset($_POST['fecha']) ? $_POST['fecha'] : '';
 
-        if ($datos->insertar_citas($peluquero, $_SESSION['email'], $servicio, $centro, $fecha)) {
+        //Conversion a la clave primaria
+        $peluquero = $datos->get_peluquero($peluquero);
+
+        if ($datos->insertar_citas($_SESSION['email'], $servicio, $centro, $peluquero, $fecha)) {
             console_log('Cita guardada correctamente');
+        } else {
+            console_log("error");
         }
 
     }
@@ -26,15 +31,6 @@ function home(){
     $centros = $datos->get_centros();
     $citas = $datos->get_citas();
 
-    console_log("servicios");
-    console_log($servicios);
-    console_log("peluqueros");
-    console_log($peluqueros);
-    console_log("centros");
-    console_log($centros);
-    console_log("citas");
-    console_log($citas);
-    
     require_once ("vista/cita_vista.php");
   
 }
