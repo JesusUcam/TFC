@@ -7,13 +7,43 @@ console_log("llamada desde inicio_vista.php");
 // console_log($array_datos);
 ?>
 
-<main class="mainIndex">
-    <div class="banner">
-        <h1>BIENVENIDO</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates culpa autem ullam corporis laborum</p>
-        <p>dolores et exercitationem aliquid molestiae libero voluptatum, ad sed deserunt totam pariatur nulla, quiipsam
-            alias.</p>
-    </div>
+<main class="index-main">
+    <section class="index-banner">
+        <div class="banner-content">
+            <h1>Bienvenido a J.A Barber Shop</h1>
+            <p>La opcion para el cuidado de un hombre.</p>
+            <a href="servicios.php" class="action_btn">Nuestros servicios</a>
+        </div>
+    </section>
+
+    <section id="services" class="index-services">
+        <div class="services-container">
+            <h2>Lo que hacemos</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-cut"></i>
+                    <h3>Corte de pelo</h3>
+                    <p>Experimenta cortes precisos de nuestros hábiles barberos.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-chess-king"></i>
+                    <h3>Arreglo de barba</h3>
+                    <p>Obtén esa forma perfecta de barba con nuestro servicio de recorte experto.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-hand-rock"></i>
+                    <h3>Afeitado</h3>
+                    <p>Disfruta de un afeitado suave y refrescante utilizando productos premium.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="index-appointment">
+        <div class="appointment-container">
+            <a href="contacto.php" class="indexcs_btn">Contactanos</a>
+        </div>
+    </section>
 </main>
 
 
