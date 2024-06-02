@@ -82,8 +82,17 @@ class Citas_modelo {
         return null;
     }
 
-    public function borrar_citas($id) {
-        $sql = "DELETE FROM citas WHERE id_cita = $id";
+    public function borrar($id) {
+        $sql = "DELETE FROM citas WHERE id = $id";
+        return $this->db->query($sql);
+    }
+
+    function modificar($id, $cliente, $servicio, $centro, $peluquero, $fecha){
+        console_log("llamada a modificar");
+        console_log($fecha);
+        $sql = "UPDATE citas SET cliente='$cliente', servicio='$servicio', centro='$centro', peluquero='$peluquero', fecha='$fecha'
+            WHERE id='$id'";
+
         return $this->db->query($sql);
     }
 

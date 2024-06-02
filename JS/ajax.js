@@ -1,38 +1,26 @@
-function modificarUsuario(usuario) {
+function modificarCita(cita) {
     $('#nuevo').hide();
     $('#contenido').show();
+
     $.ajax({
-        type:'POST',
-        data:{accion:"modificar",
-            nombre:$("#nombre" + usuario).val(),
-                edad: $("#edad" + usuario).val(),
-                correo: $("#correo" + usuario).val()
-            },
-        url: "controlador/datos_controlador.php",
+        type: 'POST',
+        data: {
+            accion: "modificar",
+            id: $("#id" + cita).val(),
+            cliente: $("#cliente" + cita).val(),
+            servicio: $("#servicio" + cita).val(),
+            centro: $("#centro" + cita).val(),
+            peluquero: $("#peluquero" + cita).val(),
+            fecha: $("#fecha" + cita).val()
+        },
+        url: "controlador/citas_controlador.php",
         success: function (response) {
+            
             $("#contenido").html(response);
+            console.log(cita);
         },
         error: function (error) {
-            console.log(error);
-        },
-    });
-}
-function modificarProducto(Producto) {
-    $('#nuevo').hide();
-    $('#contenido').show();
-    $.ajax({
-        type:'POST',
-        data:{accion:"modificar",
-            nombre:$("#nombre" + Producto).val(),
-                cantidad: $("#cantidad" + Producto).val(),
-                descripcion: $("#descripcion" + Producto).val()
-            },
-        url: "controlador/productos_controlador.php",
-        success: function (response) {
-            $("#contenido").html(response);
-        },
-        error: function (error) {
-            console.log(error);
+            console.log("Error:", error);
         },
     });
 }
@@ -40,5 +28,4 @@ function modificarProducto(Producto) {
 function cancelar() {
     $('#nuevo').show();
     $('#contenido').hide();
-    
 }

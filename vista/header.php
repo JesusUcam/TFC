@@ -15,7 +15,7 @@ if (isset($_SESSION['email'])) {
             <li><a href="servicios.php">Servicios</a></li>
             <li><a href="contacto.php">Contacto</a></li>
         </ul>
-        <a href="index.php?controlador=usuarios&action=barbers" class="action_btn">Mis Citas</a>
+        <a href="index.php?controlador=citas&action=barbers" class="action_btn">Mis Citas</a>
         <a href="index.php?controlador=usuarios&action=desconectar" class="cs_btn">Cerrar sesión</a>
 
         <div class="toggle_btn">
@@ -31,10 +31,10 @@ if (isset($_SESSION['email'])) {
         <li><a href="contacto.php">Contacto</a></li>
         <li>
             <div class="foto_perfil">
-                <i class="fa-solid fa-user"></i>
+                <a href="" class="cs_btn">Mi perfil</a>
             </div>
         </li>
-        <a href="index.php?controlador=usuarios&action=barbers" class="action_btn">Mis Citas</a>
+        <a href="index.php?controlador=citas&action=barbers" class="action_btn">Mis Citas</a>
         <a href="index.php?controlador=usuarios&action=desconectar" class="cs_btn">Cerrar sesión</a>
     </div>
 </header>
@@ -53,7 +53,7 @@ if (isset($_SESSION['email'])) {
             <li><a href="contacto.php">Contacto</a></li>
             <li>
                 <div class="foto_perfil">
-                    <img src="media/user_image.png" alt="foto de perfil de usuarios por defecto">
+                <a href="" class="cs_btn">Mi perfil</a>
                 </div>
             </li>
         </ul>
@@ -72,13 +72,13 @@ if (isset($_SESSION['email'])) {
         <li><a href="contacto.php">Contacto</a></li>
         <li>
             <div class="foto_perfil">
-                <i class="fa-solid fa-user"></i>
+                <a href="" class="cs_btn">Mi perfil</a>
             </div>
         </li>
     </div>
 
     <div class="user_config">
-        <li><a href="index.php?controlador=usuarios&action=clienteCitas">Mis Citas</a></li>
+        <li><a href="index.php?controlador=citas&action=clienteCitas">Mis Citas</a></li>
         <li><a href="index.php?controlador=usuarios&action=editar_perfil">Editar perfil</a></li>
         <li><a href="index.php?controlador=usuarios&action=desconectar" class="cs_btn">Cerrar sesión</a></li>
     </div>
