@@ -47,11 +47,34 @@ function home()
             }
         }
 
-    } 
-    
+    }
+
     $array_datos = $datos->get_usuarios();
-    require_once("vista/inicio_vista.php");
+    require_once ("vista/inicio_vista.php");
 }
+
+
+
+function insertar_clientes()
+{
+    require_once ("modelo/usuarios_modelo.php");
+    $datos = new Usuarios_modelo();
+
+    $email = $_POST['email'];
+    $nombre = $_POST['nombre'];
+    $apellidos = $_POST['apellidos'];
+    $telefono = $_POST['telefono'];
+    $clave = $_POST['clave'];
+
+
+    if ($datos->insertar_clientes($email, $nombre, $apellidos, $telefono, $clave)) {
+        echo "<p style= color:white; font-size:1.5rem;>Registro exitoso</p>";
+    } else {
+        echo "Error en el registro";
+    }
+}
+
+
 
 function editar_perfil()
 {
@@ -81,21 +104,26 @@ function clienteCitas()
     require_once ("vista/citasCliente_vista.php");
 }
 
-function barbers(){
+function barbers()
+{
 
-    require_once("modelo/usuarios_modelo.php");
-    require_once("modelo/citas_modelo.php");
+    require_once ("modelo/usuarios_modelo.php");
+    require_once ("modelo/citas_modelo.php");
     
     $datos = new Usuarios_modelo();
 
     $email = $_SESSION['email'];
     $peluquero_citas = $datos->get_citas_usuario($email);
+  
+    require_once ("vista/barbers_vista.php");
 
-    require_once("vista/barbers_vista.php");
-    
 }
 
-function desconectar(){
+
+
+
+function desconectar()
+{
     session_destroy();
     // header("Location: index.php");
 }

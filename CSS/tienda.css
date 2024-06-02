@@ -1,0 +1,504 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  background-color: #1d1e22;
+  background-size: cover;
+  background-position: center;
+  font-family: "Prata", serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Yeseva One", serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+a:hover {
+  color: orange;
+}
+
+header {
+  position: relative;
+  padding: 0 2rem;
+  background: none;
+  z-index: 10;
+}
+
+.mainIndex {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.navbar {
+  width: 100%;
+  height: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar .links {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar .toggle_btn {
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+.action_btn {
+  background-color: orange;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: scale 0.2 ease;
+}
+
+.action_btn:hover {
+  scale: 1.05;
+  color: #fff;
+}
+
+.action_btn:active {
+  scale: 0.95;
+}
+
+.cs_btn {
+  background-color: rgb(255, 30, 0);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: scale 0.2 ease;
+}
+
+.cs_btn:hover {
+  scale: 1.05;
+  color: #fff;
+}
+
+.cs_btn:active {
+  scale: 0.95;
+}
+
+.banner {
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.banner h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.dropdown_menu {
+  z-index: 100;
+  position: absolute;
+  right: 2rem;
+  top: 60px;
+  height: 0;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown_menu.open {
+  height: 240px;
+}
+
+.dropdown_menu li {
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown_menu .action_btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.user_config {
+  z-index: 100;
+  position: absolute;
+  right: 2rem;
+  top: 60px;
+  height: 0;
+  width: 300px;
+  background: rgb(202, 202, 202);
+  backdrop-filter: blur(15px);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.user_config.open {
+  height: 150px;
+}
+
+.user_config li {
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user_config .action_btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/*-----------TIENDA-----------*/
+
+.tiendaMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 2rem 0;
+  min-height: 100vh;
+}
+
+.tituloTienda {
+  width: 100%;
+  margin-bottom: 2%;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to top right, #000 20%, #1d1e22 80%);
+}
+
+.tiendaMain h1 {
+  color: white;
+  font-size: 4rem;
+  padding: 1em 1em;
+  background: linear-gradient(to left, rgb(179, 107, 19) 10%, orange 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+.carrousel,
+.carrousel * {
+  box-sizing: border-box;
+}
+
+.carrousel {
+  font-size: 1rem;
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  grid-template-columns: max-content 1fr max-content;
+  grid-template-rows: max-content 1fr max-content;
+  grid-template-areas:
+    ". . f"
+    "l . r"
+    "p b c";
+  border-radius: 0.25rem;
+  color: white;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.carrousel:focus {
+  outline: 1px solid currentcolor;
+}
+
+.carrousel.full-view {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 999;
+  font-size: 1.5rem;
+  --object-fit: contain !important;
+  border-radius: 0;
+}
+
+.carrousel.hide-controls .control {
+  opacity: 0;
+  pointer-events: 0;
+}
+
+.carrousel .slides {
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+  display: flex;
+  flex-grow: grow;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.carrousel > *:not(.slides) {
+  margin: 0.5em;
+}
+
+.carrousel .slides img {
+  --backgroundOverlay: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+  flex-shrink: 0;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  background: #1d1e22;
+  object-fit: var(--object-fit, cover);
+  transition: margin-left 1s ease;
+  background-size: cover;
+  background-position: center center;
+}
+
+.carrousel .icon {
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.carrousel .arrow-left {
+  grid-area: l;
+  font-size: 1.5em;
+}
+
+.carrousel .arrow-right {
+  grid-area: r;
+  font-size: 1.5em;
+}
+
+.carrousel .full-view-btn {
+  grid-area: f;
+}
+
+.carrousel .auto-play-btn {
+  grid-area: p;
+}
+
+.carrousel .controls-hide-btn {
+  grid-area: c;
+}
+
+.carrousel .bullets {
+  grid-area: b;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.column h2 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.column a {
+  color: #fff;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+}
+
+.column a:hover {
+  color: orange;
+}
+
+.productos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 5%;
+}
+
+.tituloTienda2 {
+  width: 100%;
+  margin-bottom: 2%;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to top left, #000 20%, #1d1e22 80%);
+  margin-top: 3%;
+}
+
+.tiendaMain h2 {
+  color: white;
+  font-size: 4rem;
+  padding: 1em 1em;
+  background: linear-gradient(to left, rgb(179, 107, 19) 10%, orange 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+}
+
+.card img {
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-body {
+  padding: 20px;
+  background-color: #3b3a3a;
+  object-fit: cover;
+  height: auto;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #ffde59;
+}
+
+.card-text {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #ffde59;
+}
+
+.card-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffde59;
+}
+
+/*----------------------------*/
+
+footer {
+  background-color: #000;
+  color: white;
+  text-align: center;
+  width: 100%;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.5s;
+}
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .column {
+  width: 30%;
+  padding: 20px;
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .navbar .links,
+  .navbar .action_btn {
+    display: none;
+  }
+
+  .navbar .toggle_btn {
+    display: block;
+  }
+
+  .dropdown_menu {
+    display: block;
+  }
+
+  .h2_Servicios {
+    margin-right: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .carrousel {
+    width: 100%;
+    height: auto;
+  }
+
+  .carrousel .slides img {
+    height: 300px;
+  }
+
+  .productos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 400px) {
+  .dropdown_menu {
+    top: 40px;
+  }
+
+  .h2_Servicios {
+    margin-right: 100%;
+  }
+}
