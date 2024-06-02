@@ -89,8 +89,6 @@ class Usuarios_modelo
         return $this->db->query($sql);
     }
 
-}
-
     public function get_citas_usuario($usuario){
         $sql = "SELECT * FROM citas 
                 WHERE peluquero = '$usuario'
