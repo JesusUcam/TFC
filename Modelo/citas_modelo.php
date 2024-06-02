@@ -93,12 +93,10 @@ class Citas_modelo {
         $resultado = $this->db->query($sql);
         
         if ($resultado->num_rows > 0) {
-
-            console_log("TENEMOS UN PROBLEMA");
+            
             return null;
 
         } else {
-            console_log("Gora eta");
 
             $sql = "INSERT INTO citas (cliente, servicio, centro, peluquero, fecha) VALUES ('$cliente', '$servicio', '$centro', '$peluquero', '$fecha')";
             return $this->db->query($sql);
